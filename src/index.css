@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────
+   CSS DESIGN TOKENS
+───────────────────────────────────────────── */
+:root {
+  --navy:        #0B1F3A;
+  --navy2:       #122848;
+  --green:       #1A7A4A;
+  --green-light: #22A05F;
+  --green-pale:  #EAF5EF;
+  --amber:       #D4860A;
+  --amber-pale:  #FDF3E0;
+  --white:       #FFFFFF;
+  --off:         #F7F5F0;
+  --off2:        #EEE9E0;
+  --text:        #1C1C1A;
+  --muted:       #5A6478;
+  --border:      #DDD8CF;
+}
+
+/* ─────────────────────────────────────────────
+   RESET & BASE
+───────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 14px;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--off);
+  color: var(--text);
+  line-height: 1.75;
+  overflow-x: hidden;
+}
+
+h1, h2 {
+  font-family: 'Playfair Display', serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ─────────────────────────────────────────────
+   SHARED UTILITY CLASSES
+───────────────────────────────────────────── */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.eyebrow::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: var(--green);
+  flex-shrink: 0;
+}
+
+.eyebrow--light {
+  color: rgba(255,255,255,0.55);
+}
+
+.eyebrow--light::before {
+  background: var(--green-light);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  border: none;
+  transition: background 0.22s ease, color 0.22s ease, border-color 0.22s ease;
+  text-decoration: none;
+}
+
+.btn-green {
+  background: var(--green);
+  color: var(--white);
+}
+.btn-green:hover { background: var(--green-light); }
+
+.btn-navy {
+  background: var(--navy);
+  color: var(--white);
+}
+.btn-navy:hover { background: var(--navy2); }
+
+.btn-navy-outline {
+  background: transparent;
+  color: var(--navy);
+  border: 1.5px solid var(--navy);
+}
+.btn-navy-outline:hover {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.btn-white {
+  background: var(--white);
+  color: var(--navy);
+}
+.btn-white:hover { background: var(--off); }
+
+.btn-white-outline {
+  background: transparent;
+  color: var(--white);
+  border: 1.5px solid rgba(255,255,255,0.55);
+}
+.btn-white-outline:hover {
+  border-color: var(--white);
+  background: rgba(255,255,255,0.07);
+}
+
+/* ─────────────────────────────────────────────
+   SCROLL REVEAL
+───────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─────────────────────────────────────────────
+   SECTION COMMON
+───────────────────────────────────────────── */
+.section-header {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: clamp(28px, 3.5vw, 36px);
+  font-weight: 500;
+  color: var(--navy);
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.section-body {
+  font-size: 14px;
+  color: var(--muted);
+  max-width: 600px;
+  line-height: 1.75;
+}
+
+@media (max-width: 768px) {
+  .container { padding: 0 20px; }
+}

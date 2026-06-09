@@ -1,0 +1,66 @@
+.reach-belt {
+  background: var(--green-pale);
+  border-top: 1px solid #C5E5D3;
+  border-bottom: 1px solid #C5E5D3;
+  padding: 64px 0;
+}
+
+.reach-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.reach-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--navy);
+  margin-bottom: 14px;
+}
+
+.reach-body {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.region-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.region-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  background: var(--white);
+  border: 1px solid var(--green);
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  transition: background 0.2s, color 0.2s;
+  cursor: default;
+}
+
+.region-tag::before {
+  content: '→';
+  font-size: 12px;
+}
+
+.region-tag:hover {
+  background: var(--green);
+  color: var(--white);
+}
+
+@media (max-width: 768px) {
+  .reach-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}

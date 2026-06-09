@@ -1,0 +1,83 @@
+.products-section {
+  padding: 88px 0;
+  background: var(--off);
+}
+
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+}
+
+.manifest-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  min-width: 680px;
+}
+
+.manifest-table thead {
+  background: var(--navy);
+}
+
+.manifest-table thead th {
+  color: var(--white);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 14px 20px;
+  text-align: left;
+}
+
+.manifest-table tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s ease;
+}
+
+.manifest-table tbody tr:last-child { border-bottom: none; }
+.manifest-table tbody tr:hover { background: #F7FAF8; }
+
+.manifest-table td {
+  padding: 18px 20px;
+  vertical-align: top;
+}
+
+.cat-code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 11px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.cat-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+  white-space: nowrap;
+}
+
+.brand-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.brand-pill {
+  display: inline-block;
+  padding: 3px 10px;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  background: var(--white);
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.format-badge {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+}

@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Passport — Your Global Food Partner</title>
+  <meta name="description" content="Food Passport Pty Ltd — Premium Australian FMCG sourced, consolidated, labelled, and shipped to Europe, the Middle East, Africa, Asia, and beyond. Est. 2002, Melbourne.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ─────────────────────────────────────────────
+       DESIGN TOKENS
+    ───────────────────────────────────────────── */
+    :root {
+      --navy:        #0B1F3A;
+      --navy2:       #122848;
+      --green:       #1A7A4A;
+      --green-light: #22A05F;
+      --green-pale:  #EAF5EF;
+      --amber:       #D4860A;
+      --amber-pale:  #FDF3E0;
+      --white:       #FFFFFF;
+      --off:         #F7F5F0;
+      --off2:        #EEE9E0;
+      --text:        #1C1C1A;
+      --muted:       #5A6478;
+      --border:      #DDD8CF;
+    }
+
+    /* ─────────────────────────────────────────────
+       RESET & BASE
+    ───────────────────────────────────────────── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 14px;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--off);
+      color: var(--text);
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    h1, h2 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img { display: block; max-width: 100%; }
+
+    /* ─────────────────────────────────────────────
+       UTILITY CLASSES
+    ───────────────────────────────────────────── */
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 2px;
+      background: var(--green);
+      flex-shrink: 0;
+    }
+
+    .eyebrow--light {
+      color: rgba(255,255,255,0.55);
+    }
+
+    .eyebrow--light::before {
+      background: var(--green-light);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 28px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      border: none;
+      transition: background 0.22s ease, color 0.22s ease, border-color 0.22s ease;
+      text-transform: none;
+    }
+
+    .btn-green {
+      background: var(--green);
+      color: var(--white);
+    }
+    .btn-green:hover { background: var(--green-light); }
+
+    .btn-navy {
+      background: var(--navy);
+      color: var(--white);
+    }
+    .btn-navy:hover { background: var(--navy2); }
+
+    .btn-navy-outline {
+      background: transparent;
+      color: var(--navy);
+      border: 1.5px solid var(--navy);
+    }
+    .btn-navy-outline:hover {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .btn-white {
+      background: var(--white);
+      color: var(--navy);
+    }
+    .btn-white:hover { background: var(--off); }
+
+    .btn-white-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(255,255,255,0.55);
+    }
+    .btn-white-outline:hover {
+      border-color: var(--white);
+      background: rgba(255,255,255,0.07);
+    }
+
+    /* ─────────────────────────────────────────────
+       SCROLL REVEAL
+    ───────────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─────────────────────────────────────────────
+       1. NAVIGATION
+    ───────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav-logo {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--navy);
+      line-height: 1;
+    }
+    .nav-logo .accent { color: var(--green); }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 36px;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--navy); }
+
+    .nav-cta {
+      padding: 10px 22px;
+      font-size: 12px;
+      letter-spacing: 0.8px;
+    }
+
+    .nav-mobile-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+    }
+    .nav-mobile-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--navy);
+      transition: all 0.3s;
+    }
+
+    /* ─────────────────────────────────────────────
+       2. HERO
+    ───────────────────────────────────────────── */
+    .hero {
+      background: var(--off);
+      border-bottom: 1px solid var(--border);
+      padding: 96px 0 80px;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 60fr 40fr;
+      gap: 72px;
+      align-items: start;
+    }
+
+    /* Hero Left */
+    .hero-left {
+      padding-top: 8px;
+    }
+
+    .hero-eyebrow {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.6s ease forwards;
+      animation-delay: 0.05s;
+    }
+
+    .hero-h1 {
+      font-size: clamp(38px, 5vw, 52px);
+      font-weight: 500;
+      line-height: 1.12;
+      color: var(--navy);
+      margin-bottom: 24px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.6s ease forwards;
+      animation-delay: 0.2s;
+    }
+
+    .hero-h1 em {
+      font-style: italic;
+      color: var(--green);
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 36px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.6s ease forwards;
+      animation-delay: 0.38s;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.6s ease forwards;
+      animation-delay: 0.55s;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Hero Right — Order Flow */
+    .hero-right {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 28px 28px 24px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.6s ease forwards;
+      animation-delay: 0.3s;
+    }
+
+    .flow-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 24px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .flow-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .flow-step {
+      display: grid;
+      grid-template-columns: 40px 1fr 20px;
+      gap: 14px;
+      align-items: start;
+      padding: 14px 12px 14px 8px;
+      border-left: 3px solid transparent;
+      transition: border-color 0.25s ease, background 0.2s ease;
+      position: relative;
+      cursor: default;
+    }
+
+    .flow-step:hover {
+      border-left-color: var(--green);
+      background: var(--off);
+    }
+
+    .flow-step + .flow-step::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 27px;
+      width: 1px;
+      height: 0;
+      background: var(--border);
+    }
+
+    .step-connector {
+      position: relative;
+    }
+
+    .step-icon {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--white);
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-icon.green  { background: var(--green); }
+    .step-icon.navy   { background: var(--navy); }
+    .step-icon.amber  { background: var(--amber); }
+
+    .flow-step-body {
+      min-width: 0;
+    }
+
+    .step-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.3;
+      margin-bottom: 3px;
+    }
+
+    .step-sub {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .step-arrow {
+      color: var(--border);
+      font-size: 14px;
+      align-self: center;
+      transition: color 0.2s;
+    }
+
+    .flow-step:hover .step-arrow { color: var(--green); }
+
+    /* Connector lines between steps */
+    .flow-step-wrap {
+      position: relative;
+    }
+
+    .flow-step-wrap + .flow-step-wrap .flow-line {
+      position: absolute;
+      top: 0;
+      left: 27px;
+      width: 1px;
+      height: 14px;
+      background: var(--border);
+      transform: translateY(-14px);
+    }
+
+    /* ─────────────────────────────────────────────
+       3. STATS BAR
+    ───────────────────────────────────────────── */
+    .stats-bar {
+      background: var(--navy);
+      border-top: 3px solid var(--green);
+      padding: 48px 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 16px 24px;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+    .stat-item:last-child { border-right: none; }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 500;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 2px;
+    }
+
+    .stat-plus {
+      color: var(--green-light);
+      font-size: 24px;
+    }
+
+    .stat-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ─────────────────────────────────────────────
+       4. PRODUCT CATEGORIES TABLE
+    ───────────────────────────────────────────── */
+    .section {
+      padding: 88px 0;
+    }
+
+    .section-header {
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 3.5vw, 36px);
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+
+    .section-body {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 600px;
+      line-height: 1.75;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+    }
+
+    .manifest-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      min-width: 680px;
+    }
+
+    .manifest-table thead {
+      background: var(--navy);
+    }
+
+    .manifest-table thead th {
+      color: var(--white);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 14px 20px;
+      text-align: left;
+    }
+
+    .manifest-table tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.2s ease;
+    }
+
+    .manifest-table tbody tr:last-child { border-bottom: none; }
+
+    .manifest-table tbody tr:hover {
+      background: #F7FAF8;
+    }
+
+    .manifest-table td {
+      padding: 18px 20px;
+      vertical-align: top;
+    }
+
+    .cat-code {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .cat-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--navy);
+      white-space: nowrap;
+    }
+
+    .brand-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .brand-pill {
+      display: inline-block;
+      padding: 3px 10px;
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      background: var(--white);
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+    }
+
+    .format-badge {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--muted);
+      white-space: nowrap;
+      letter-spacing: 0.5px;
+    }
+
+    /* ─────────────────────────────────────────────
+       5. GLOBAL REACH BELT
+    ───────────────────────────────────────────── */
+    .reach-belt {
+      background: var(--green-pale);
+      border-top: 1px solid #C5E5D3;
+      border-bottom: 1px solid #C5E5D3;
+      padding: 64px 0;
+    }
+
+    .reach-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .reach-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 14px;
+    }
+
+    .reach-body {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .region-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .region-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 18px;
+      background: var(--white);
+      border: 1px solid var(--green);
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .region-tag:hover {
+      background: var(--green);
+      color: var(--white);
+    }
+
+    .region-tag::before {
+      content: '→';
+      font-size: 12px;
+    }
+
+    /* ─────────────────────────────────────────────
+       6. SERVICES GRID
+    ───────────────────────────────────────────── */
+    .services-section {
+      background: var(--white);
+      padding: 88px 0;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--border);
+    }
+
+    .service-card {
+      padding: 36px 36px 32px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      transition: background 0.22s ease;
+    }
+
+    .service-card:nth-child(2n) { border-right: none; }
+    .service-card:nth-child(3),
+    .service-card:nth-child(4) { border-bottom: none; }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--green);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card:hover { background: var(--off); }
+
+    .svc-code {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .svc-name {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 10px;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .svc-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 22px;
+    }
+
+    .svc-tag {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--green);
+      border-bottom: 1px solid var(--green);
+      padding-bottom: 1px;
+      display: inline-block;
+      letter-spacing: 0.3px;
+    }
+
+    /* ─────────────────────────────────────────────
+       7. FACILITIES
+    ───────────────────────────────────────────── */
+    .facilities-section {
+      background: var(--off);
+      padding: 88px 0;
+    }
+
+    .facilities-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .facility-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 36px 36px 32px;
+      transition: border-color 0.22s;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+
+    .facility-card:hover { border-color: var(--green); }
+
+    .facility-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .badge-amber {
+      background: var(--amber-pale);
+      color: var(--amber);
+      border: 1px solid #F3D4A0;
+    }
+
+    .badge-blue {
+      background: #EAF1FB;
+      color: #2D5FA3;
+      border: 1px solid #BDD1EE;
+    }
+
+    .facility-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .facility-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 28px;
+    }
+
+    .spec-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-top: 1px solid var(--border);
+      padding-top: 22px;
+    }
+
+    .spec-item {
+      padding-right: 20px;
+    }
+
+    .spec-item + .spec-item {
+      padding-left: 20px;
+      padding-right: 0;
+      border-left: 1px solid var(--border);
+    }
+
+    .spec-value {
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--navy);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .spec-key {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ─────────────────────────────────────────────
+       8. CTA SECTION
+    ───────────────────────────────────────────── */
+    .cta-section {
+      background: var(--navy);
+      padding: 88px 0 0;
+    }
+
+    .cta-top {
+      text-align: center;
+      padding-bottom: 64px;
+    }
+
+    .cta-h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 18px;
+      line-height: 1.15;
+    }
+
+    .cta-h2 em {
+      font-style: italic;
+      color: var(--green-light);
+    }
+
+    .cta-sub {
+      font-size: 15px;
+      color: rgba(255,255,255,0.55);
+      max-width: 520px;
+      margin: 0 auto 36px;
+      line-height: 1.75;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .contact-row {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+
+    .contact-item {
+      padding: 28px 24px;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .contact-item:last-child { border-right: none; }
+
+    .contact-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 6px;
+    }
+
+    .contact-value {
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.45;
+    }
+
+    .contact-value a {
+      color: var(--green-light);
+      transition: color 0.2s;
+    }
+    .contact-value a:hover { color: var(--white); }
+
+    /* ─────────────────────────────────────────────
+       9. FOOTER
+    ───────────────────────────────────────────── */
+    footer {
+      background: #0A1929;
+      padding: 28px 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .footer-logo {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+    .footer-logo .accent { color: var(--green-light); }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      text-align: center;
+    }
+
+    .footer-tagline {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+      text-align: right;
+    }
+
+    /* ─────────────────────────────────────────────
+       RESPONSIVE — 768px
+    ───────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .container { padding: 0 20px; }
+
+      /* Nav */
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        flex-direction: column;
+        gap: 0;
+        border-bottom: 1px solid var(--border);
+        padding: 8px 0;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li a {
+        display: block;
+        padding: 12px 24px;
+      }
+      .nav-cta { display: none; }
+      .nav-mobile-toggle { display: flex; }
+
+      /* Hero */
+      .hero { padding: 56px 0 48px; }
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .hero-h1 { font-size: 36px; }
+
+      /* Stats */
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0;
+      }
+      .stat-item {
+        border-right: 1px solid rgba(255,255,255,0.1);
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
+      .stat-item:nth-child(2n) { border-right: none; }
+      .stat-item:nth-child(3),
+      .stat-item:nth-child(4) { border-bottom: none; }
+
+      /* Reach */
+      .reach-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      /* Services */
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      .service-card {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+      .service-card:last-child { border-bottom: none; }
+
+      /* Facilities */
+      .facilities-grid { grid-template-columns: 1fr; }
+
+      /* Contact row */
+      .contact-row {
+        grid-template-columns: 1fr 1fr;
+      }
+      .contact-item {
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
+      .contact-item:nth-child(2n) { border-right: none; }
+      .contact-item:nth-child(3),
+      .contact-item:nth-child(4) { border-bottom: none; }
+
+      /* Footer */
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+      }
+      .footer-tagline { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       1. NAVIGATION
+  ═══════════════════════════════════════════ -->
+  <nav id="top">
+    <div class="container nav-inner">
+      <div class="nav-logo">
+        FOOD<span class="accent">PASS</span>PORT
+      </div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#facilities">Facilities</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <button class="btn btn-navy nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+        Request a Quote
+      </button>
+
+      <div class="nav-mobile-toggle" id="mobileToggle" aria-label="Toggle menu" role="button" tabindex="0">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════
+       2. HERO
+  ═══════════════════════════════════════════ -->
+  <section class="hero" id="about">
+    <div class="container">
+      <div class="hero-inner">
+
+        <!-- Left column -->
+        <div class="hero-left">
+          <div class="eyebrow hero-eyebrow">Est. 2002 · Melbourne, Australia</div>
+
+          <h1 class="hero-h1">
+            Your <em>Global</em><br>
+            Food Partner
+          </h1>
+
+          <p class="hero-sub">
+            Premium Australian FMCG — sourced, consolidated, labelled, and shipped to Europe, the Middle East, Africa, Asia, and beyond.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#products" class="btn btn-green">View Catalogue</a>
+            <a href="#contact" class="btn btn-navy-outline">Get in Touch</a>
+          </div>
+        </div>
+
+        <!-- Right column — How an Order Works -->
+        <div class="hero-right">
+          <div class="flow-label">HOW AN ORDER WORKS</div>
+
+          <ol class="flow-list" role="list">
+            <div class="flow-step-wrap">
+              <li class="flow-step">
+                <div class="step-icon green">1</div>
+                <div class="flow-step-body">
+                  <div class="step-title">Select products</div>
+                  <div class="step-sub">Confectionery, Pantry, or Healthy Living</div>
+                </div>
+                <span class="step-arrow">›</span>
+              </li>
+            </div>
+
+            <div class="flow-step-wrap">
+              <div class="flow-line"></div>
+              <li class="flow-step">
+                <div class="step-icon navy">2</div>
+                <div class="flow-step-body">
+                  <div class="step-title">Choose shipping mode</div>
+                  <div class="step-sub">Air freight or sea (FCL / LCL)</div>
+                </div>
+                <span class="step-arrow">›</span>
+              </li>
+            </div>
+
+            <div class="flow-step-wrap">
+              <div class="flow-line"></div>
+              <li class="flow-step">
+                <div class="step-icon green">3</div>
+                <div class="flow-step-body">
+                  <div class="step-title">We consolidate &amp; QA check</div>
+                  <div class="step-sub">AQIS-certified facility, Derrimut VIC</div>
+                </div>
+                <span class="step-arrow">›</span>
+              </li>
+            </div>
+
+            <div class="flow-step-wrap">
+              <div class="flow-line"></div>
+              <li class="flow-step">
+                <div class="step-icon amber">4</div>
+                <div class="flow-step-body">
+                  <div class="step-title">Label, ink-jet &amp; dispatch</div>
+                  <div class="step-sub">Multi-language labels · date coding</div>
+                </div>
+                <span class="step-arrow">›</span>
+              </li>
+            </div>
+
+            <div class="flow-step-wrap">
+              <div class="flow-line"></div>
+              <li class="flow-step">
+                <div class="step-icon navy">5</div>
+                <div class="flow-step-body">
+                  <div class="step-title">Delivered to your port</div>
+                  <div class="step-sub">5 continents · 22+ years experience</div>
+                </div>
+                <span class="step-arrow">›</span>
+              </li>
+            </div>
+          </ol>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       3. STATS BAR
+  ═══════════════════════════════════════════ -->
+  <section class="stats-bar" aria-label="Key statistics">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">
+            <span class="stat-count" data-target="22">0</span><span class="stat-plus">+</span>
+          </div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">
+            <span class="stat-count" data-target="30">0</span><span class="stat-plus">+</span>
+          </div>
+          <div class="stat-label">Years FMCG</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">
+            <span class="stat-count" data-target="5">0</span>
+          </div>
+          <div class="stat-label">Continents Served</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">
+            <span class="stat-count" data-target="3500">0</span>
+          </div>
+          <div class="stat-label">Pallet Capacity</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       4. PRODUCT CATEGORIES TABLE
+  ═══════════════════════════════════════════ -->
+  <section class="section" id="products">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="eyebrow">Our Product Range</div>
+        <h2 class="section-title">What We Export</h2>
+        <p class="section-body">Three core categories, dozens of brands — all Australian-made and ready for global export.</p>
+      </div>
+
+      <div class="table-wrap reveal">
+        <table class="manifest-table" aria-label="Product categories export manifest">
+          <thead>
+            <tr>
+              <th>Cat.</th>
+              <th>Category</th>
+              <th>Key Brands</th>
+              <th>Format</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="cat-code">CAT-01</span></td>
+              <td><span class="cat-name">Confectionery &amp; Snacks</span></td>
+              <td>
+                <div class="brand-list">
+                  <span class="brand-pill">Cadbury</span>
+                  <span class="brand-pill">Oreo</span>
+                  <span class="brand-pill">KitKat</span>
+                  <span class="brand-pill">Nestlé</span>
+                  <span class="brand-pill">Mars Wrigley</span>
+                  <span class="brand-pill">Allen's</span>
+                  <span class="brand-pill">Arnott's</span>
+                  <span class="brand-pill">Cobs</span>
+                  <span class="brand-pill">Sour Patch Kids</span>
+                  <span class="brand-pill">Lotus Biscoff</span>
+                  <span class="brand-pill">Snack Brands</span>
+                </div>
+              </td>
+              <td><span class="format-badge">Dry / Ambient</span></td>
+            </tr>
+            <tr>
+              <td><span class="cat-code">CAT-02</span></td>
+              <td><span class="cat-name">Pantry Essentials</span></td>
+              <td>
+                <div class="brand-list">
+                  <span class="brand-pill">Sandhurst</span>
+                  <span class="brand-pill">McKenzie's</span>
+                  <span class="brand-pill">SPC</span>
+                  <span class="brand-pill">Spiral Foods</span>
+                  <span class="brand-pill">Leggo's</span>
+                  <span class="brand-pill">Chicken Tonight</span>
+                  <span class="brand-pill">Well&amp;Good</span>
+                  <span class="brand-pill">Riverina Grove</span>
+                  <span class="brand-pill">Slendier</span>
+                  <span class="brand-pill">Mingle</span>
+                  <span class="brand-pill">Green's</span>
+                  <span class="brand-pill">Tabasco</span>
+                  <span class="brand-pill">Beerenberg</span>
+                  <span class="brand-pill">Mayver's</span>
+                  <span class="brand-pill">Ebo Raw</span>
+                  <span class="brand-pill">Pure Harvest</span>
+                  <span class="brand-pill">Taylor's</span>
+                  <span class="brand-pill">Lotus Celtic Sea Salt</span>
+                </div>
+              </td>
+              <td><span class="format-badge">Dry / Ambient</span></td>
+            </tr>
+            <tr>
+              <td><span class="cat-code">CAT-03</span></td>
+              <td><span class="cat-name">Healthy Living</span></td>
+              <td>
+                <div class="brand-list">
+                  <span class="brand-pill">Locako</span>
+                  <span class="brand-pill">Nōshu</span>
+                  <span class="brand-pill">Piranha</span>
+                  <span class="brand-pill">Food for Health</span>
+                  <span class="brand-pill">DJ&amp;A</span>
+                  <span class="brand-pill">Fodmapped</span>
+                  <span class="brand-pill">Brookfarm</span>
+                  <span class="brand-pill">Bains Wholefoods</span>
+                  <span class="brand-pill">Orgran</span>
+                  <span class="brand-pill">Splits Veggie Crispbread</span>
+                </div>
+              </td>
+              <td><span class="format-badge">Dry / Ambient</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       5. GLOBAL REACH BELT
+  ═══════════════════════════════════════════ -->
+  <section class="reach-belt">
+    <div class="container">
+      <div class="reach-inner">
+        <div class="reveal">
+          <div class="eyebrow">Global Network</div>
+          <h3 class="reach-title">Australian Goods,<br>Delivered Globally</h3>
+          <p class="reach-body">
+            With 22+ years of export experience and a 5-continent distribution network, Food Passport connects Australian producers with buyers across the world's most diverse and demanding markets. From Melbourne to Milan, Dubai to Dakar — we handle the complexity so you don't have to.
+          </p>
+        </div>
+        <div class="reveal">
+          <div class="region-tags">
+            <span class="region-tag">Asia Pacific</span>
+            <span class="region-tag">Middle East</span>
+            <span class="region-tag">Africa</span>
+            <span class="region-tag">Europe</span>
+            <span class="region-tag">Australia</span>
+            <span class="region-tag">New Zealand</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       6. SERVICES
+  ═══════════════════════════════════════════ -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="eyebrow">What We Do</div>
+        <h2 class="section-title">End-to-End Export Solution</h2>
+        <p class="section-body">From source to shelf — every step of your export journey handled under one roof.</p>
+      </div>
+
+      <div class="services-grid reveal">
+
+        <article class="service-card">
+          <span class="svc-code">SVC-01</span>
+          <div class="svc-name">Consolidation &amp; Logistics</div>
+          <p class="svc-desc">Air or sea (FCL/LCL). Single or multi-product orders consolidated into one shipment to your designated port.</p>
+          <span class="svc-tag">AQIS Registered</span>
+        </article>
+
+        <article class="service-card">
+          <span class="svc-code">SVC-02</span>
+          <div class="svc-name">Quality Assurance</div>
+          <p class="svc-desc">Every order checked for product quality, expiry dates, and packaging integrity before leaving our facility.</p>
+          <span class="svc-tag">Purpose-Built Facility</span>
+        </article>
+
+        <article class="service-card">
+          <span class="svc-code">SVC-03</span>
+          <div class="svc-name">Labelling &amp; Ink-Jetting</div>
+          <p class="svc-desc">Multi-language labels (Arabic and beyond), manufacturing and best-before ink-jetting on every item and carton.</p>
+          <span class="svc-tag">Custom Per Client</span>
+        </article>
+
+        <article class="service-card">
+          <span class="svc-code">SVC-04</span>
+          <div class="svc-name">Custom Sourcing</div>
+          <p class="svc-desc">Not in the catalogue? We source from Australia's finest manufacturers — consistency, reliability, competitive pricing.</p>
+          <span class="svc-tag">Brand Consolidation</span>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       7. FACILITIES
+  ═══════════════════════════════════════════ -->
+  <section class="facilities-section" id="facilities">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="eyebrow">Our Infrastructure</div>
+        <h2 class="section-title">Infrastructure Built for Export</h2>
+        <p class="section-body">Purpose-built facilities in Derrimut, Victoria — engineered for the demands of international FMCG logistics.</p>
+      </div>
+
+      <div class="facilities-grid">
+
+        <article class="facility-card reveal">
+          <span class="facility-badge badge-amber">AMBIENT</span>
+          <h3 class="facility-title">Dry Goods Storage</h3>
+          <p class="facility-desc">Temperature-controlled at +18°C constant. Protects chips, biscuits, and confectionery from Australian seasonal extremes.</p>
+          <div class="spec-grid">
+            <div class="spec-item">
+              <div class="spec-value">400</div>
+              <div class="spec-key">Pallet Capacity</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-value">+18°C</div>
+              <div class="spec-key">Constant Temp</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="facility-card reveal">
+          <span class="facility-badge badge-blue">CHILLED &amp; FROZEN</span>
+          <h3 class="facility-title">Cold Chain Storage</h3>
+          <p class="facility-desc">24/7 online temp monitoring. Certified for meat, poultry, dairy, and everyday chilled/frozen lines.</p>
+          <div class="spec-grid">
+            <div class="spec-item">
+              <div class="spec-value">3,500</div>
+              <div class="spec-key">Pallet Capacity</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-value">24/7</div>
+              <div class="spec-key">Monitoring</div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       8. CTA SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="cta-section" id="contact">
+    <div class="container">
+      <div class="cta-top reveal">
+        <div class="eyebrow eyebrow--light" style="justify-content:center;">Get in Touch</div>
+        <h2 class="cta-h2">
+          Let's Work <em>Together</em>
+        </h2>
+        <p class="cta-sub">Whether you need a single product or a full container — we'll make it happen. Talk to Tina today.</p>
+        <div class="cta-buttons">
+          <a href="mailto:tina@foodpassport.com.au" class="btn btn-white">Request a Quote</a>
+          <button class="btn btn-white-outline">Download Catalogue</button>
+        </div>
+      </div>
+
+      <div class="contact-row reveal">
+        <div class="contact-item">
+          <div class="contact-label">Contact</div>
+          <div class="contact-value">Mrs Tina Koutroumanis</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-label">Mobile</div>
+          <div class="contact-value"><a href="tel:+61460019597">+61 460 019 597</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-label">Email</div>
+          <div class="contact-value"><a href="mailto:tina@foodpassport.com.au">tina@foodpassport.com.au</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-label">Address</div>
+          <div class="contact-value">11/45 Hunter Rd, Derrimut VIC, Australia</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       9. FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">FOOD<span class="accent">PASS</span>PORT</div>
+        <div class="footer-copy">© 2026 Food Passport Pty Ltd · Melbourne, Australia</div>
+        <div class="footer-tagline">Your Global Food Partner</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ═══════════════════════════════════════════
+       MOBILE NAV TOGGLE
+    ═══════════════════════════════════════════ */
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    mobileToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    mobileToggle.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        navLinks.classList.toggle('open');
+      }
+    });
+
+    // Close nav on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    /* ═══════════════════════════════════════════
+       SCROLL REVEAL — IntersectionObserver
+    ═══════════════════════════════════════════ */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    /* ═══════════════════════════════════════════
+       STATS COUNTER ANIMATION
+    ═══════════════════════════════════════════ */
+    function animateCount(el, target, duration) {
+      const start = performance.now();
+      const isLarge = target >= 1000;
+
+      function update(time) {
+        const elapsed = time - start;
+        const progress = Math.min(elapsed / duration, 1);
+        // Ease out cubic
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = Math.round(eased * target);
+        el.textContent = isLarge ? current.toLocaleString() : current;
+        if (progress < 1) requestAnimationFrame(update);
+      }
+
+      requestAnimationFrame(update);
+    }
+
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          document.querySelectorAll('.stat-count').forEach(counter => {
+            const target = parseInt(counter.dataset.target, 10);
+            animateCount(counter, target, 1500);
+          });
+          statsObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const statsBar = document.querySelector('.stats-bar');
+    if (statsBar) statsObserver.observe(statsBar);
+  </script>
+
+</body>
+</html>
