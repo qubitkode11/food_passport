@@ -57,15 +57,15 @@ const Footer = () => {
           <div className="lg:col-span-4">
             <Link 
               to="/" 
-              className="flex items-center gap-2 cursor-pointer group inline-block mb-6" 
+              className="cursor-pointer group inline-block mb-6" 
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
-              <div className="w-10 h-10 bg-green-light rounded flex items-center justify-center transform transition-transform duration-500 group-hover:rotate-12">
-                <span className="font-serif text-navy font-bold text-2xl leading-none">F</span>
-              </div>
-              <span className="font-sans font-bold text-white tracking-widest uppercase text-xl">
-                Food Passport
-              </span>
+              <img
+                src="/food_passport_logo.png"
+                alt="Food Passport — Your Global Food Partner"
+                className="h-14 w-auto object-contain transition-all duration-300 group-hover:brightness-110"
+                style={{ maxWidth: '220px' }}
+              />
             </Link>
             <p className="text-white/50 text-sm leading-relaxed mb-8 max-w-xs">
               Sourcing, consolidating, labelling, and shipping premium Australian FMCG to over 5 continents since 2002.
@@ -118,6 +118,10 @@ const Footer = () => {
               <li className="text-white/60 text-sm flex items-center gap-4">
                 <svg className="w-5 h-5 text-green-light flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                 <a href="mailto:info@foodpassport.com.au" className="hover:text-white transition-colors border-b border-white/20 pb-0.5 hover:border-white">info@foodpassport.com.au</a>
+              </li>
+              <li className="text-white/60 text-sm flex items-center gap-4">
+                <svg className="w-5 h-5 text-green-light flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                <a href="tel:+61460019597" className="hover:text-white transition-colors border-b border-white/20 pb-0.5 hover:border-white">+61 460 019 597</a>
               </li>
             </ul>
           </div>

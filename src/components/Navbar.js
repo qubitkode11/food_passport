@@ -63,14 +63,14 @@ const Navbar = () => {
           <Link 
             to="/"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex items-center gap-2 cursor-pointer group"
+            className="cursor-pointer group flex-shrink-0"
           >
-            <div className="w-8 h-8 bg-green-light rounded flex items-center justify-center transform transition-transform duration-500 group-hover:rotate-12">
-              <span className="font-serif text-white font-bold text-xl leading-none">F</span>
-            </div>
-            <span className="font-sans font-bold text-white tracking-widest uppercase text-lg hidden sm:block">
-              Food Passport
-            </span>
+            <img
+              src="/food_passport_logo.png"
+              alt="Food Passport — Your Global Food Partner"
+              className="h-12 w-auto object-contain transition-all duration-300 group-hover:brightness-110 drop-shadow-md"
+              style={{ maxWidth: '200px' }}
+            />
           </Link>
 
           {/* Desktop Nav */}
@@ -147,6 +147,7 @@ const Navbar = () => {
         }`}
       >
         <div className="h-full flex flex-col items-center justify-center gap-6 p-8 overflow-y-auto pt-20">
+          <img src="/food_passport_logo.png" alt="Food Passport" className="h-14 w-auto object-contain mb-4 opacity-90" />
           {navLinks.map((link) => {
             if (link.name === 'Categories') {
               return (

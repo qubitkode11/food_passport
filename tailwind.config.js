@@ -13,9 +13,9 @@ module.exports = {
           900: '#0A1929',
         },
         green: {
-          DEFAULT: '#1A7A4A',
-          light: '#22A05F',
-          pale: '#EAF5EF',
+          DEFAULT: '#C9A84C',
+          light: '#D4B85E',
+          pale: '#FBF5E0',
         },
         amber: {
           DEFAULT: '#D4860A',

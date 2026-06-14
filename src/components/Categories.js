@@ -99,23 +99,53 @@ const Categories = () => {
                     </svg>
                   </h3>
                   
-                  {/* Images slide up on hover */}
-                  <div className="transform translate-y-8 opacity-0 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100">
+                  {/* Always-visible brand images strip */}
+                  <div>
                     <p className="text-xs font-semibold tracking-wider text-white/60 uppercase mb-4">Featured Products</p>
                     
-                    <div className="relative flex items-center overflow-hidden">
-                      {/* Gradients */}
-                      <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-navy/80 to-transparent z-10" />
-                      <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-navy/80 to-transparent z-10" />
-                      
-                      <div className="flex w-max animate-scroll items-center gap-4">
-                        {cat.marqueeImages.map((src, idx) => (
-                          <div key={idx} className="w-20 h-14 bg-white/90 rounded flex-shrink-0 p-1 overflow-hidden">
-                            <img src={src} alt="Product Thumbnail" className="w-full h-full object-contain" />
-                          </div>
-                        ))}
-                      </div>
-                    </div>
+                    <div
+                      className="relative flex items-center overflow-visible"
+                      style={{ '--tw-overflow': 'visible' }}
+                    >
+                       <div
+                         className="flex w-max items-center gap-4"
+                         style={{ animation: 'scroll 40s linear infinite' }}
+                         onMouseEnter={e => e.currentTarget.style.animationPlayState = 'paused'}
+                         onMouseLeave={e => e.currentTarget.style.animationPlayState = 'running'}
+                       >
+                         {cat.marqueeImages.map((src, idx) => (
+                           <div
+                             key={idx}
+                             className="flex-shrink-0 cursor-pointer"
+                             style={{
+                               width: '80px',
+                               height: '56px',
+                               transition: 'transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, z-index 0s',
+                               borderRadius: '6px',
+                               background: 'rgba(255,255,255,0.92)',
+                               padding: '4px',
+                               overflow: 'hidden',
+                               position: 'relative',
+                               zIndex: 1,
+                             }}
+                             onMouseEnter={e => {
+                               e.currentTarget.style.transform = 'scale(1.65) translateY(-6px)';
+                               e.currentTarget.style.boxShadow = '0 12px 32px rgba(0,0,0,0.5), 0 0 0 2px rgba(212,184,94,0.8)';
+                               e.currentTarget.style.zIndex = '30';
+                               e.currentTarget.style.background = 'rgba(255,255,255,1)';
+                             }}
+                             onMouseLeave={e => {
+                               e.currentTarget.style.transform = 'scale(1) translateY(0)';
+                               e.currentTarget.style.boxShadow = 'none';
+                               e.currentTarget.style.zIndex = '1';
+                               e.currentTarget.style.background = 'rgba(255,255,255,0.92)';
+                             }}
+                           >
+                             <img src={src} alt="Product Thumbnail" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
+                           </div>
+                         ))}
+                       </div>
+                     </div>
                   </div>
                 </div>
               </Link>
