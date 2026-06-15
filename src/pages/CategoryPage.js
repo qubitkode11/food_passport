@@ -73,11 +73,57 @@ const categoryDatabase = {
   },
   'fadefit': {
     heroImage: 'https://images.unsplash.com/photo-1603569283847-aa295f0d016a?q=80&w=2000&auto=format&fit=crop',
-    products: []
+    products: [
+      { src: encodeURI('/fadefit images/Assorted_Protein_Snacks_Dark_Chocolate.jpg'), name: 'Assorted Protein Snacks Dark Chocolate' },
+      { src: encodeURI('/fadefit images/Assorted_Protein_Snacks_Pistachio.jpg'), name: 'Assorted Protein Snacks Pistachio' },
+      { src: encodeURI('/fadefit images/BBQ_Protein_Puffs_4_Pack.png'), name: 'BBQ Protein Puffs 4 Pack' },
+      { src: encodeURI('/fadefit images/Berry_Blast_Kids_Snacks_6_Packs.png'), name: 'Berry Blast Kids Snacks 6 Packs' },
+      { src: encodeURI('/fadefit images/Cheese_Protein_Puffs_4_Pack.png'), name: 'Cheese Protein Puffs 4 Pack' },
+      { src: encodeURI('/fadefit images/Choco_Loco_Kids_Snacks_6_Packs.png'), name: 'Choco Loco Kids Snacks 6 Packs' },
+      { src: encodeURI('/fadefit images/Chocolate_Fudge_Brownie_Protein_Bar_-_3_x_55g.png'), name: 'Chocolate Fudge Brownie Protein Bar - 3 x 55g' },
+      { src: encodeURI('/fadefit images/Chocolate_Fudge_Brownie_Protein_Bars_-_Box_of_20.png'), name: 'Chocolate Fudge Brownie Protein Bars - Box of 20' },
+      { src: encodeURI('/fadefit images/Coconut_Energy_Snacks_6_Snack_Packs.png'), name: 'Coconut Energy Snacks 6 Snack Packs' },
+      { src: encodeURI('/fadefit images/Coconut_Protein_Balls_4-Full_Packs.png'), name: 'Coconut Protein Balls 4 Full Packs' },
+      { src: encodeURI('/fadefit images/Coconut_Protein_Balls_8-Mini_Packs.png'), name: 'Coconut Protein Balls 8 Mini Packs' },
+      { src: encodeURI('/fadefit images/Crunchy_Peanut_Butter_Protein_Bar_-_3_x_55g.png'), name: 'Crunchy Peanut Butter Protein Bar - 3 x 55g' },
+      { src: encodeURI('/fadefit images/Crunchy_Peanut_Butter_Protein_Bars_-_Box_of_20.png'), name: 'Crunchy Peanut Butter Protein Bars - Box of 20' },
+      { src: encodeURI('/fadefit images/Dark_Chocolate_Protein_Balls_4-Full_Packs.png'), name: 'Dark Chocolate Protein Balls 4 Full Packs' },
+      { src: encodeURI('/fadefit images/Dark_Chocolate_Protein_Balls_8-Mini_Packs.png'), name: 'Dark Chocolate Protein Balls 8 Mini Packs' },
+      { src: encodeURI('/fadefit images/Double_Choco_Loco_Kids_Snacks_6_Packs.png'), name: 'Double Choco Loco Kids Snacks 6 Packs' },
+      { src: encodeURI('/fadefit images/Fade_Fit_Caps.jpg'), name: 'Fade Fit Caps' },
+      { src: encodeURI('/fadefit images/Hazelnut_Energy_Snacks_-_6_Snack_Packs.png'), name: 'Hazelnut Energy Snacks - 6 Snack Packs' },
+      { src: encodeURI('/fadefit images/Hazelnut_Protein_Balls_4-Full_Packs.png'), name: 'Hazelnut Protein Balls 4 Full Packs' },
+      { src: encodeURI('/fadefit images/Hazelnut_Protein_Balls_8-Mini_Packs.png'), name: 'Hazelnut Protein Balls 8 Mini Packs' },
+      { src: encodeURI('/fadefit images/Jalapeo_Cheddar_Protein_Puffs_4_Pack.png'), name: 'Jalapeño Cheddar Protein Puffs 4 Pack' },
+      { src: encodeURI('/fadefit images/Kids_Snacks_Variety_Pack_-_6_Snack_Packs.png'), name: 'Kids Snacks Variety Pack - 6 Snack Packs' },
+      { src: encodeURI('/fadefit images/Organic_Apple_Cider_Vinegar_Gummies.jpg'), name: 'Organic Apple Cider Vinegar Gummies' },
+      { src: encodeURI('/fadefit images/Peanut_Butter_-_6_Snack_Packs.png'), name: 'Peanut Butter - 6 Snack Packs' },
+      { src: encodeURI('/fadefit images/Peanut_Butter_4-Full_Packs.png'), name: 'Peanut Butter 4 Full Packs' },
+      { src: encodeURI('/fadefit images/Peanut_Butter_Protein_Balls_8-Mini_Packs.png'), name: 'Peanut Butter Protein Balls 8 Mini Packs' },
+      { src: encodeURI('/fadefit images/Pistachio_Protein_Balls_4-Full_Packs.png'), name: 'Pistachio Protein Balls 4 Full Packs' },
+      { src: encodeURI('/fadefit images/Pistachio_Protein_Balls_8-Mini_Pack.png'), name: 'Pistachio Protein Balls 8 Mini Pack' },
+      { src: encodeURI('/fadefit images/Protein_Bar_Variety_Pack_-_3_x_55g.png'), name: 'Protein Bar Variety Pack - 3 x 55g' },
+      { src: encodeURI('/fadefit images/Protein_Variety_Pack_6-Full_Packs.png'), name: 'Protein Variety Pack 6 Full Packs' },
+      { src: encodeURI('/fadefit images/Salted_Caramel_4-Full_Packs.png'), name: 'Salted Caramel 4 Full Packs' },
+      { src: encodeURI('/fadefit images/Salted_Caramel_Protein_Balls_8-Mini_Pack.png'), name: 'Salted Caramel Protein Balls 8 Mini Pack' },
+      { src: encodeURI('/fadefit images/Salted_Caramel_Protein_Bar_-_3_x_55g.png'), name: 'Salted Caramel Protein Bar - 3 x 55g' },
+      { src: encodeURI('/fadefit images/Salted_Caramel_Protein_Bars_-_Box_of_20.png'), name: 'Salted Caramel Protein Bars - Box of 20' },
+      { src: encodeURI('/fadefit images/Sea_Salt_Protein_Puffs_4_Pack.png'), name: 'Sea Salt Protein Puffs 4 Pack' },
+      { src: encodeURI('/fadefit images/Sweet_Chili_Protein_Puffs_4_Pack.png'), name: 'Sweet Chili Protein Puffs 4 Pack' },
+      { src: encodeURI('/fadefit images/Turmeric_Ginger_Gummies.png'), name: 'Turmeric Ginger Gummies' },
+      { src: encodeURI('/fadefit images/Variety_Energy_Snacks_-_6_Snack_Packs.png'), name: 'Variety Energy Snacks - 6 Snack Packs' },
+      { src: encodeURI('/fadefit images/Vitamin_C_Gummies.png'), name: 'Vitamin C Gummies' },
+    ]
   },
   'burjbites': {
     heroImage: 'https://images.unsplash.com/photo-1581006509951-e12484a929fb?q=80&w=2000&auto=format&fit=crop',
-    products: []
+    products: [
+      { src: encodeURI('/burj bites images/Cookie_Kunafa.png'), name: 'Cookie Kunafa' },
+      { src: encodeURI('/burj bites images/Kinder_Kunafa.png'), name: 'Kinder Kunafa' },
+      { src: encodeURI('/burj bites images/Mango_Kunafa.png'), name: 'Mango Kunafa' },
+      { src: encodeURI('/burj bites images/Pistachio_Kunafa.png'), name: 'Pistachio Kunafa' },
+      { src: encodeURI('/burj bites images/Speculoos_Kunafa.png'), name: 'Speculoos Kunafa' },
+    ]
   }
 };
 
