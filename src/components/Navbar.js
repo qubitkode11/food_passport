@@ -85,8 +85,8 @@ const Navbar = () => {
             <img
               src="/food_passport_logo.png"
               alt="Food Passport — Your Global Food Partner"
-              className="h-12 w-auto object-contain transition-all duration-300 group-hover:brightness-110 drop-shadow-md"
-              style={{ maxWidth: '200px' }}
+              className="h-20 w-auto object-contain transition-all duration-300 group-hover:brightness-110 drop-shadow-md py-2"
+              style={{ maxWidth: '280px' }}
             />
           </Link>
 
@@ -109,9 +109,14 @@ const Navbar = () => {
                     {/* Dropdown Menu */}
                     <div className="absolute top-full left-0 mt-6 w-56 bg-navy/95 backdrop-blur-md border border-white/10 rounded shadow-xl opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300">
                       <div className="py-2">
-                        <Link to="/category/confectionery" className="block px-4 py-2.5 text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">{t.nav.confectionery}</Link>
-                        <Link to="/category/pantry" className="block px-4 py-2.5 text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">{t.nav.pantry}</Link>
-                        <Link to="/category/healthy" className="block px-4 py-2.5 text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">{t.nav.healthy}</Link>
+                        <div className="px-4 py-1 text-xs font-bold text-green-light uppercase tracking-widest">{t.categories?.exportTab || 'Export'}</div>
+                        <Link to="/category/confectionery" className="block px-4 py-2 text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">{t.nav.confectionery}</Link>
+                        <Link to="/category/pantry" className="block px-4 py-2 text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">{t.nav.pantry}</Link>
+                        <Link to="/category/healthy" className="block px-4 py-2 text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">{t.nav.healthy}</Link>
+                        
+                        <div className="mt-2 border-t border-white/10 pt-2 px-4 py-1 text-xs font-bold text-green-light uppercase tracking-widest">{t.categories?.importTab || 'Import'}</div>
+                        <Link to="/category/fadefit" className="block px-4 py-2 text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">{t.nav.fadefit || t.categories?.fadefit || 'Fade Fit'}</Link>
+                        <Link to="/category/burjbites" className="block px-4 py-2 text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">{t.nav.burjbites || t.categories?.burjbites || 'Burj Bites'}</Link>
                       </div>
                     </div>
                   </div>
@@ -178,10 +183,15 @@ const Navbar = () => {
                   >
                     {link.name}
                   </button>
-                  <div className="flex flex-col items-center gap-4 mt-2">
-                    <Link onClick={() => setMobileMenuOpen(false)} to="/category/confectionery" className="text-green-light text-lg font-sans tracking-wide">{t.nav.confectionery}</Link>
-                    <Link onClick={() => setMobileMenuOpen(false)} to="/category/pantry" className="text-green-light text-lg font-sans tracking-wide">{t.nav.pantry}</Link>
-                    <Link onClick={() => setMobileMenuOpen(false)} to="/category/healthy" className="text-green-light text-lg font-sans tracking-wide">{t.nav.healthy}</Link>
+                  <div className="flex flex-col items-center gap-3 mt-2 w-full">
+                    <div className="text-xs font-bold text-green-light uppercase tracking-widest mt-2">{t.categories?.exportTab || 'Export'}</div>
+                    <Link onClick={() => setMobileMenuOpen(false)} to="/category/confectionery" className="text-white/80 hover:text-white text-lg font-sans tracking-wide transition-colors">{t.nav.confectionery}</Link>
+                    <Link onClick={() => setMobileMenuOpen(false)} to="/category/pantry" className="text-white/80 hover:text-white text-lg font-sans tracking-wide transition-colors">{t.nav.pantry}</Link>
+                    <Link onClick={() => setMobileMenuOpen(false)} to="/category/healthy" className="text-white/80 hover:text-white text-lg font-sans tracking-wide transition-colors">{t.nav.healthy}</Link>
+                    
+                    <div className="text-xs font-bold text-green-light uppercase tracking-widest mt-4">{t.categories?.importTab || 'Import'}</div>
+                    <Link onClick={() => setMobileMenuOpen(false)} to="/category/fadefit" className="text-white/80 hover:text-white text-lg font-sans tracking-wide transition-colors">{t.nav.fadefit || t.categories?.fadefit || 'Fade Fit'}</Link>
+                    <Link onClick={() => setMobileMenuOpen(false)} to="/category/burjbites" className="text-white/80 hover:text-white text-lg font-sans tracking-wide transition-colors">{t.nav.burjbites || t.categories?.burjbites || 'Burj Bites'}</Link>
                   </div>
                 </div>
               );

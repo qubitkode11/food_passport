@@ -96,6 +96,18 @@ const Footer = () => {
                   {t.footer.healthy}
                 </Link>
               </li>
+              <li>
+                <Link onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} to="/category/fadefit" className="text-white/60 hover:text-green-light transition-colors duration-300 text-sm flex items-center gap-2 group">
+                  <span className="w-3 h-[1px] bg-white/20 transition-all duration-300 group-hover:w-6 group-hover:bg-green-light"></span>
+                  {t.nav.fadefit || t.categories?.fadefit || 'Fade Fit'}
+                </Link>
+              </li>
+              <li>
+                <Link onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} to="/category/burjbites" className="text-white/60 hover:text-green-light transition-colors duration-300 text-sm flex items-center gap-2 group">
+                  <span className="w-3 h-[1px] bg-white/20 transition-all duration-300 group-hover:w-6 group-hover:bg-green-light"></span>
+                  {t.nav.burjbites || t.categories?.burjbites || 'Burj Bites'}
+                </Link>
+              </li>
             </ul>
           </div>
 

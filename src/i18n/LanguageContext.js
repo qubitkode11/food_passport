@@ -5,14 +5,14 @@ const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = useState(() => {
-    return localStorage.getItem('fp_language') || 'en';
+    return sessionStorage.getItem('fp_language') || 'en';
   });
 
   useEffect(() => {
     const dir = language === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.setAttribute('dir', dir);
     document.documentElement.setAttribute('lang', language);
-    localStorage.setItem('fp_language', language);
+    sessionStorage.setItem('fp_language', language);
   }, [language]);
 
   const t = translations[language];

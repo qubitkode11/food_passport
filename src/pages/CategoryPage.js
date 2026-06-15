@@ -70,6 +70,14 @@ const categoryDatabase = {
       { src: encodeURI('/HEALTHY LIVING/Screenshot 2026-06-10 020346.png'), name: 'SPLITS' },
       { src: encodeURI('/HEALTHY LIVING/Screenshot 2026-06-10 020353.png'), name: 'ORGRAN' },
     ]
+  },
+  'fadefit': {
+    heroImage: 'https://images.unsplash.com/photo-1603569283847-aa295f0d016a?q=80&w=2000&auto=format&fit=crop',
+    products: []
+  },
+  'burjbites': {
+    heroImage: 'https://images.unsplash.com/photo-1581006509951-e12484a929fb?q=80&w=2000&auto=format&fit=crop',
+    products: []
   }
 };
 
@@ -113,27 +121,36 @@ const CategoryPage = () => {
 
       {/* Product Grid — product card names stay in English (brand names) */}
       <div className="container mx-auto px-8 max-w-7xl -mt-16 relative z-20">
-        <div ref={contentRef} className="reveal grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {category.products.map((prod, index) => (
-            <div 
-              key={index} 
-              className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-border"
-            >
-              <div className="aspect-[4/3] bg-off2 overflow-hidden relative p-4 flex items-center justify-center">
-                <img 
-                  src={prod.src} 
-                  alt={prod.name} 
-                  className="max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/5 transition-colors duration-500" />
-              </div>
-              <div className="p-6 text-center border-t border-border">
-                <h3 className="font-sans font-bold text-navy text-sm tracking-wider uppercase">
-                  {prod.name}
-                </h3>
-              </div>
+        <div ref={contentRef} className="reveal">
+          {category.products.length > 0 ? (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {category.products.map((prod, index) => (
+                <div 
+                  key={index} 
+                  className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-border"
+                >
+                  <div className="aspect-[4/3] bg-off2 overflow-hidden relative p-4 flex items-center justify-center">
+                    <img 
+                      src={prod.src} 
+                      alt={prod.name} 
+                      className="max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-500" 
+                    />
+                    <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/5 transition-colors duration-500" />
+                  </div>
+                  <div className="p-6 text-center border-t border-border">
+                    <h3 className="font-sans font-bold text-navy text-sm tracking-wider uppercase">
+                      {prod.name}
+                    </h3>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          ) : (
+            <div className="bg-white rounded-xl p-12 text-center shadow-sm border border-border">
+              <h3 className="font-serif text-2xl text-navy mb-4">Products Coming Soon</h3>
+              <p className="text-muted font-sans">We are currently updating our catalogue for this category.</p>
+            </div>
+          )}
         </div>
         
         {/* CTA — text translated, category name from i18n */}

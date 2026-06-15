@@ -12,6 +12,10 @@ const translations = {
       confectionery: 'Confectionery & Snacks',
       pantry: 'Pantry Essentials',
       healthy: 'Healthy Living',
+      export: 'Export',
+      import: 'Import',
+      fadefit: 'Fade Fit',
+      burjbites: 'Burj Bites',
     },
 
     // ── Hero ─────────────────────────────────────────────────────────
@@ -137,6 +141,10 @@ const translations = {
       confectionery: 'Confectionery & Snacks',
       pantry: 'Pantry Essentials',
       healthy: 'Healthy Living',
+      fadefit: 'Fade Fit',
+      burjbites: 'Burj Bites',
+      exportTab: 'Export',
+      importTab: 'Import',
     },
 
     // ── Global Reach ─────────────────────────────────────────────────
@@ -268,6 +276,14 @@ const translations = {
           title: 'Healthy Living',
           subtitle: 'Nourishing, natural, and organic Australian lifestyle products.',
         },
+        fadefit: {
+          title: 'Fade Fit',
+          subtitle: 'Healthy and delicious snacks for everyone.',
+        },
+        burjbites: {
+          title: 'Burj Bites',
+          subtitle: 'Premium quality bites to satisfy your cravings.',
+        },
       },
       ctaHeading: 'Looking to source',
       ctaSubtitle:
@@ -293,6 +309,10 @@ const translations = {
       confectionery: 'الحلويات والوجبات الخفيفة',
       pantry: 'أساسيات المطبخ',
       healthy: 'الحياة الصحية',
+      export: 'تصدير',
+      import: 'استيراد',
+      fadefit: 'فيد فيت',
+      burjbites: 'برج بايتس',
     },
 
     // ── Hero ─────────────────────────────────────────────────────────
@@ -418,6 +438,10 @@ const translations = {
       confectionery: 'الحلويات والوجبات الخفيفة',
       pantry: 'أساسيات المطبخ',
       healthy: 'الحياة الصحية',
+      fadefit: 'فيد فيت',
+      burjbites: 'برج بايتس',
+      exportTab: 'تصدير',
+      importTab: 'استيراد',
     },
 
     // ── Global Reach ─────────────────────────────────────────────────
@@ -547,6 +571,14 @@ const translations = {
         healthy: {
           title: 'الحياة الصحية',
           subtitle: 'منتجات أسترالية مغذية وطبيعية وعضوية لنمط حياة صحي.',
+        },
+        fadefit: {
+          title: 'فيد فيت',
+          subtitle: 'وجبات خفيفة صحية ولذيذة للجميع.',
+        },
+        burjbites: {
+          title: 'برج بايتس',
+          subtitle: 'لقيمات عالية الجودة لإرضاء رغباتك.',
         },
       },
       ctaHeading: 'تبحث عن مصدر لـ',
