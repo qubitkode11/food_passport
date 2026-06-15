@@ -1,9 +1,11 @@
 import React from 'react';
 import useScrollReveal from '../hooks/useScrollReveal';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const LabellingServices = () => {
   const contentRef = useScrollReveal();
   const cardsRef = useScrollReveal(0.3);
+  const { t } = useLanguage();
 
   return (
     <section className="relative py-32 bg-navy overflow-hidden" id="value-added">
@@ -26,21 +28,17 @@ const LabellingServices = () => {
             <div className="flex items-center gap-3 text-xs font-bold tracking-[0.2em] uppercase text-amber mb-6">
               04
               <div className="w-8 h-[2px] bg-amber"></div>
-              Value-Added Services
+              {t.labelling.eyebrow}
             </div>
             
             <h2 className="font-serif text-4xl md:text-5xl font-medium text-white leading-tight mb-8">
-              In-House Labelling & <br />
-              <span className="italic text-green-light">Ink-Jetting</span>
+              {t.labelling.heading1} <br />
+              <span className="italic text-green-light">{t.labelling.headingEm}</span>
             </h2>
             
             <div className="space-y-6 text-white/70 text-lg leading-relaxed">
-              <p>
-                We offer professional label translation and printing services, capable of translating English ingredients into languages such as Arabic and many others. Our specialist team can apply labels to individual items across all categories (ambient, chilled, frozen), ensuring that products are ready for their intended destinations.
-              </p>
-              <p>
-                Additionally, we provide inkjet printing for manufacturing and best before dates on every product, carton, sleeve, and box as required. Our labeling and inkjet services can be customized to meet the specific needs of each client.
-              </p>
+              <p>{t.labelling.p1}</p>
+              <p>{t.labelling.p2}</p>
             </div>
           </div>
 
@@ -53,9 +51,9 @@ const LabellingServices = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
                 </svg>
               </div>
-              <h3 className="font-sans font-semibold text-xl text-white mb-3">Multi-Language</h3>
+              <h3 className="font-sans font-semibold text-xl text-white mb-3">{t.labelling.card1Title}</h3>
               <p className="text-sm text-white/60 leading-relaxed">
-                Arabic, and many other languages available. Expert translation of complex ingredient lists.
+                {t.labelling.card1Desc}
               </p>
             </div>
             
@@ -65,9 +63,9 @@ const LabellingServices = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
                 </svg>
               </div>
-              <h3 className="font-sans font-semibold text-xl text-white mb-3">Date Coding</h3>
+              <h3 className="font-sans font-semibold text-xl text-white mb-3">{t.labelling.card2Title}</h3>
               <p className="text-sm text-white/60 leading-relaxed">
-                High-precision inkjet printing for manufacturing & best before dates on all packaging types.
+                {t.labelling.card2Desc}
               </p>
             </div>
             
@@ -79,9 +77,9 @@ const LabellingServices = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-sans font-semibold text-xl text-white mb-2">Custom Solutions</h3>
+                  <h3 className="font-sans font-semibold text-xl text-white mb-2">{t.labelling.card3Title}</h3>
                   <p className="text-sm text-white/60 leading-relaxed">
-                    Tailored to each client's specific regulatory requirements and destination market standards.
+                    {t.labelling.card3Desc}
                   </p>
                 </div>
               </div>

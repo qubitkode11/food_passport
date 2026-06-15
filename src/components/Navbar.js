@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
-
-const navLinks = [
-  { name: 'Our Story', href: 'story' },
-  { name: 'Services', href: 'services' },
-  { name: 'Value-Added', href: 'value-added' },
-  { name: 'Customers', href: 'customers' },
-  { name: 'Categories', href: 'categories' },
-  { name: 'Logistics', href: 'facilities' },
-];
+import { useLanguage } from '../i18n/LanguageContext';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const { language, t, toggleLanguage } = useLanguage();
+
+  const navLinks = [
+    { name: t.nav.ourStory, href: 'story' },
+    { name: t.nav.services, href: 'services' },
+    { name: t.nav.valueAdded, href: 'value-added' },
+    { name: t.nav.customers, href: 'customers' },
+    { name: t.nav.categories, href: 'categories' },
+    { name: t.nav.logistics, href: 'facilities' },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,7 +31,6 @@ const Navbar = () => {
     setMobileMenuOpen(false);
     
     if (location.pathname !== '/') {
-      // Navigate to home, then scroll after a tiny delay to let DOM render
       navigate('/');
       setTimeout(() => {
         const el = document.getElementById(id);
@@ -39,7 +40,6 @@ const Navbar = () => {
         }
       }, 100);
     } else {
-      // Already on home, just scroll
       const el = document.getElementById(id);
       if (el) {
         const y = el.getBoundingClientRect().top + window.scrollY - 80;
@@ -47,6 +47,23 @@ const Navbar = () => {
       }
     }
   };
+
+  // Language switcher button
+  const LangSwitcher = ({ className = '' }) => (
+    <button
+      onClick={toggleLanguage}
+      className={`lang-switcher ${className}`}
+      aria-label="Switch language"
+    >
+      <svg className="w-3.5 h-3.5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+          d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+      </svg>
+      <span className={`lang-option ${language === 'en' ? 'lang-active' : ''}`}>EN</span>
+      <span className="lang-sep">|</span>
+      <span className={`lang-option ${language === 'ar' ? 'lang-active' : ''}`}>AR</span>
+    </button>
+  );
 
   return (
     <>
@@ -76,7 +93,7 @@ const Navbar = () => {
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => {
-              if (link.name === 'Categories') {
+              if (link.name === t.nav.categories) {
                 return (
                   <div key={link.name} className="group relative">
                     <button
@@ -92,9 +109,9 @@ const Navbar = () => {
                     {/* Dropdown Menu */}
                     <div className="absolute top-full left-0 mt-6 w-56 bg-navy/95 backdrop-blur-md border border-white/10 rounded shadow-xl opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300">
                       <div className="py-2">
-                        <Link to="/category/confectionery" className="block px-4 py-2.5 text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">Confectionery & Snacks</Link>
-                        <Link to="/category/pantry" className="block px-4 py-2.5 text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">Pantry Essentials</Link>
-                        <Link to="/category/healthy" className="block px-4 py-2.5 text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">Healthy Living</Link>
+                        <Link to="/category/confectionery" className="block px-4 py-2.5 text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">{t.nav.confectionery}</Link>
+                        <Link to="/category/pantry" className="block px-4 py-2.5 text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">{t.nav.pantry}</Link>
+                        <Link to="/category/healthy" className="block px-4 py-2.5 text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">{t.nav.healthy}</Link>
                       </div>
                     </div>
                   </div>
@@ -114,14 +131,17 @@ const Navbar = () => {
             })}
           </div>
 
-          {/* CTA & Mobile Toggle */}
-          <div className="flex items-center gap-6">
+          {/* CTA, Lang Switcher & Mobile Toggle */}
+          <div className="flex items-center gap-4">
+            {/* Language Switcher — desktop */}
+            <LangSwitcher className="hidden sm:flex" />
+
             <Link 
               to="/contact"
               className="hidden sm:block relative overflow-hidden bg-white text-navy px-6 py-2.5 font-sans text-sm font-bold tracking-widest uppercase transition-all duration-300 hover:text-white group"
             >
               <span className="absolute inset-0 bg-green-light transform translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0" />
-              <span className="relative z-10">Contact Us</span>
+              <span className="relative z-10">{t.nav.contactUs}</span>
             </Link>
 
             {/* Hamburger */}
@@ -149,7 +169,7 @@ const Navbar = () => {
         <div className="h-full flex flex-col items-center justify-center gap-6 p-8 overflow-y-auto pt-20">
           <img src="/food_passport_logo.png" alt="Food Passport" className="h-14 w-auto object-contain mb-4 opacity-90" />
           {navLinks.map((link) => {
-            if (link.name === 'Categories') {
+            if (link.name === t.nav.categories) {
               return (
                 <div key={link.name} className="flex flex-col items-center gap-4 border-y border-white/10 py-4 my-2 w-full">
                   <button
@@ -159,9 +179,9 @@ const Navbar = () => {
                     {link.name}
                   </button>
                   <div className="flex flex-col items-center gap-4 mt-2">
-                    <Link onClick={() => setMobileMenuOpen(false)} to="/category/confectionery" className="text-green-light text-lg font-sans tracking-wide">Confectionery & Snacks</Link>
-                    <Link onClick={() => setMobileMenuOpen(false)} to="/category/pantry" className="text-green-light text-lg font-sans tracking-wide">Pantry Essentials</Link>
-                    <Link onClick={() => setMobileMenuOpen(false)} to="/category/healthy" className="text-green-light text-lg font-sans tracking-wide">Healthy Living</Link>
+                    <Link onClick={() => setMobileMenuOpen(false)} to="/category/confectionery" className="text-green-light text-lg font-sans tracking-wide">{t.nav.confectionery}</Link>
+                    <Link onClick={() => setMobileMenuOpen(false)} to="/category/pantry" className="text-green-light text-lg font-sans tracking-wide">{t.nav.pantry}</Link>
+                    <Link onClick={() => setMobileMenuOpen(false)} to="/category/healthy" className="text-green-light text-lg font-sans tracking-wide">{t.nav.healthy}</Link>
                   </div>
                 </div>
               );
@@ -176,12 +196,16 @@ const Navbar = () => {
               </button>
             );
           })}
+
+          {/* Language switcher — mobile */}
+          <LangSwitcher className="mt-2" />
+
           <Link 
             to="/contact"
             onClick={() => setMobileMenuOpen(false)}
-            className="mt-6 bg-green-light text-white px-8 py-4 font-sans text-sm font-bold tracking-widest uppercase text-center block w-full max-w-[250px]"
+            className="mt-4 bg-green-light text-white px-8 py-4 font-sans text-sm font-bold tracking-widest uppercase text-center block w-full max-w-[250px]"
           >
-            Contact Us
+            {t.nav.contactUs}
           </Link>
         </div>
       </div>

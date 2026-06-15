@@ -1,29 +1,7 @@
 import React from 'react';
 import useScrollReveal from '../hooks/useScrollReveal';
 import './Facilities.css';
-
-const facilities = [
-  {
-    badge: 'AMBIENT',
-    badgeClass: 'badge-amber',
-    title: 'Dry Goods Storage',
-    desc: 'Temperature-controlled at +18°C constant. Protects chips, biscuits, and confectionery from Australian seasonal extremes.',
-    specs: [
-      { value: '400',   key: 'Pallet Capacity' },
-      { value: '+18°C', key: 'Constant Temp' },
-    ],
-  },
-  {
-    badge: 'CHILLED & FROZEN',
-    badgeClass: 'badge-blue',
-    title: 'Cold Chain Storage',
-    desc: '24/7 online temp monitoring. Certified for meat, poultry, dairy, and everyday chilled/frozen lines.',
-    specs: [
-      { value: '3,500', key: 'Pallet Capacity' },
-      { value: '24/7',  key: 'Monitoring' },
-    ],
-  },
-];
+import { useLanguage } from '../i18n/LanguageContext';
 
 /* Each card gets its own component so the hook is called at the top level */
 const FacilityCard = ({ facility }) => {
@@ -47,21 +25,26 @@ const FacilityCard = ({ facility }) => {
 
 const Facilities = () => {
   const headerRef = useScrollReveal();
+  const { t } = useLanguage();
+
+  const facilitiesData = t.facilities.items.map((item, idx) => ({
+    ...item,
+    badgeClass: idx === 0 ? 'badge-amber' : 'badge-blue',
+  }));
 
   return (
     <section className="facilities-section" id="facilities">
       <div className="container">
         <div className="section-header reveal" ref={headerRef}>
-          <div className="eyebrow">Our Infrastructure</div>
-          <h2 className="section-title">Infrastructure Built for Export</h2>
+          <div className="eyebrow">{t.facilities.eyebrow}</div>
+          <h2 className="section-title">{t.facilities.heading}</h2>
           <p className="section-body">
-            Purpose-built facilities in Derrimut, Victoria — engineered for the
-            demands of international FMCG logistics.
+            {t.facilities.body}
           </p>
         </div>
 
         <div className="facilities-grid">
-          {facilities.map((f) => (
+          {facilitiesData.map((f) => (
             <FacilityCard key={f.title} facility={f} />
           ))}
         </div>

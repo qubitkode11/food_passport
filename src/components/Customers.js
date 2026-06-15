@@ -1,8 +1,10 @@
 import React from 'react';
 import useScrollReveal from '../hooks/useScrollReveal';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const Customers = () => {
   const contentRef = useScrollReveal();
+  const { t } = useLanguage();
 
   return (
     <section className="py-24 bg-white border-t border-border" id="customers">
@@ -11,16 +13,16 @@ const Customers = () => {
         <div ref={contentRef} className="reveal text-center max-w-3xl mx-auto">
           <div className="flex items-center justify-center gap-3 text-xs font-semibold tracking-[0.2em] uppercase text-muted mb-6">
             <div className="w-8 h-[2px] bg-green"></div>
-            Our Customers
+            {t.customers.eyebrow}
             <div className="w-8 h-[2px] bg-green"></div>
           </div>
           
           <h2 className="font-serif text-3xl md:text-4xl font-medium text-navy mb-12">
-            Trusted by Global Retailers & Distributors
+            {t.customers.heading}
           </h2>
           
           <p className="text-muted text-lg leading-relaxed mb-16 italic font-serif">
-            "Food Passport's ability to consolidate top-tier Australian brands into single shipments has completely transformed our supply chain. Their attention to multi-language labelling and QA ensures our stock hits the shelves immediately."
+            {t.customers.quote}
           </p>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">

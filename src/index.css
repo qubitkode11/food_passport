@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -181,3 +183,66 @@ a {
 @media (max-width: 768px) {
   .container { padding: 0 20px; }
 }
+
+/* ─────────────────────────────────────────────
+   RTL / ARABIC SUPPORT
+───────────────────────────────────────────── */
+[dir="rtl"] body {
+  font-family: 'Noto Sans Arabic', 'DM Sans', sans-serif;
+}
+
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6 {
+  font-family: 'Noto Sans Arabic', 'Playfair Display', serif;
+}
+
+[dir="rtl"] .eyebrow::before {
+  /* flip the decorative bar to the right side */
+  order: 99;
+}
+
+[dir="rtl"] .eyebrow {
+  flex-direction: row-reverse;
+}
+
+/* Language switcher button */
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  border-radius: 9999px;
+  background: transparent;
+  color: rgba(255,255,255,0.8);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: 'DM Sans', sans-serif;
+  white-space: nowrap;
+}
+
+.lang-switcher:hover {
+  border-color: var(--green-light);
+  color: var(--green-light);
+}
+
+.lang-switcher .lang-option {
+  transition: color 0.2s ease;
+}
+
+.lang-switcher .lang-active {
+  color: var(--green-light);
+}
+
+.lang-switcher .lang-sep {
+  opacity: 0.4;
+  margin: 0 2px;
+}
+

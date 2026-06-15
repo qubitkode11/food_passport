@@ -4,6 +4,7 @@ import './App.css';
 import Navbar         from './components/Navbar';
 import Footer         from './components/Footer';
 import FloatingContact from './components/FloatingContact';
+import { LanguageProvider } from './i18n/LanguageContext';
 
 // Pages
 import HomePage       from './pages/HomePage';
@@ -20,19 +21,21 @@ function ScrollToTop() {
 
 function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <Navbar />
-      <main>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/category/:id" element={<CategoryPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-        </Routes>
-      </main>
-      <Footer />
-      <FloatingContact />
-    </Router>
+    <LanguageProvider>
+      <Router>
+        <ScrollToTop />
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/category/:id" element={<CategoryPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+          </Routes>
+        </main>
+        <Footer />
+        <FloatingContact />
+      </Router>
+    </LanguageProvider>
   );
 }
 

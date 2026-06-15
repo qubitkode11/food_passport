@@ -1,9 +1,11 @@
 import React from 'react';
 import useScrollReveal from '../hooks/useScrollReveal';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const OurStory = () => {
   const contentRef = useScrollReveal();
   const imageRef = useScrollReveal(0.2);
+  const { t } = useLanguage();
 
   return (
     <section className="py-24 bg-off" id="story">
@@ -14,39 +16,28 @@ const OurStory = () => {
           <div ref={contentRef} className="reveal pr-4">
             <div className="flex items-center gap-3 text-xs font-semibold tracking-[0.2em] uppercase text-muted mb-6">
               <div className="w-8 h-[2px] bg-green"></div>
-              Our Story
+              {t.story.eyebrow}
             </div>
             
             <h2 className="font-serif text-4xl md:text-5xl font-medium text-navy leading-[1.15] mb-8">
-              Decades of FMCG <br />
-              <span className="italic text-green">Expertise</span>
+              {t.story.heading1}<br />
+              <span className="italic text-green">{t.story.headingEm}</span>
             </h2>
             
             <div className="space-y-6 text-muted text-[15px] leading-relaxed">
-              <p>
-                Founded in 2002 by Mrs. Tina Koutroumanis, Food Passport was built on a simple premise: 
-                to bridge the gap between Australia's finest food producers and the complex demands of international markets.
-              </p>
-              <p>
-                With over 30 years of personal experience in the FMCG sector, our leadership understands the nuances 
-                of global food trade. What started as a modest operation in Melbourne has grown into a highly specialized 
-                consolidation hub serving clients across 5 continents.
-              </p>
-              <p>
-                We don't just ship boxes. We ensure compliance, manage multi-language ink-jetting, oversee QA, 
-                and protect your brand's integrity across borders. When you partner with us, you gain an extension 
-                of your own operations in Australia.
-              </p>
+              <p>{t.story.p1}</p>
+              <p>{t.story.p2}</p>
+              <p>{t.story.p3}</p>
             </div>
             
             <div className="mt-10 grid grid-cols-2 gap-8 border-t border-border pt-8">
               <div>
                 <div className="font-serif text-4xl text-navy mb-1">2002</div>
-                <div className="text-xs font-semibold tracking-wider text-muted uppercase">Founded In</div>
+                <div className="text-xs font-semibold tracking-wider text-muted uppercase">{t.story.foundedLabel}</div>
               </div>
               <div>
                 <div className="font-serif text-4xl text-navy mb-1">22+</div>
-                <div className="text-xs font-semibold tracking-wider text-muted uppercase">Years Experience</div>
+                <div className="text-xs font-semibold tracking-wider text-muted uppercase">{t.story.yearsLabel}</div>
               </div>
             </div>
           </div>

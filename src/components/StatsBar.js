@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 // Custom CountUp hook
 function useCountUp(target, duration, active) {
@@ -64,6 +65,7 @@ const tickerItems = [...shuffled, ...shuffled];
 
 const StatsBar = () => {
   const [active, setActive] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -85,14 +87,14 @@ const StatsBar = () => {
       
       {/* Counters */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-y-4 md:gap-y-0 gap-x-4 px-4 md:px-8 mb-4 md:mb-5">
-        <StatItem target={5} suffix="" label="Continents Served" active={active} />
-        <StatItem target={22} suffix="+" label="Years FMCG" active={active} />
-        <StatItem target={24} suffix="/7" label="Monitoring" active={active} />
-        <StatItem target={100} suffix="%" label="QA Checked" active={active} />
+        <StatItem target={5} suffix="" label={t.stats.continents} active={active} />
+        <StatItem target={22} suffix="+" label={t.stats.years} active={active} />
+        <StatItem target={24} suffix="/7" label={t.stats.monitoring} active={active} />
+        <StatItem target={100} suffix="%" label={t.stats.qa} active={active} />
       </div>
 
       {/* Infinite Scrolling Marquee */}
-      <div className="pt-3 border-t border-navy/5 relative flex items-center">
+      <div className="pt-3 border-t border-navy/5 relative flex items-center" dir="ltr">
         <div className="absolute left-0 top-0 bottom-0 w-16 md:w-28 bg-gradient-to-r from-white to-transparent z-10"></div>
         <div className="absolute right-0 top-0 bottom-0 w-16 md:w-28 bg-gradient-to-l from-white to-transparent z-10"></div>
         

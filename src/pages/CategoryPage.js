@@ -1,12 +1,11 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import useScrollReveal from '../hooks/useScrollReveal';
+import { useLanguage } from '../i18n/LanguageContext';
 
-// Data store for category pages
+// Static product data (not translated — product names stay as-is)
 const categoryDatabase = {
   'confectionery': {
-    title: 'Confectionery & Snacks',
-    subtitle: 'Premium Australian treats, sourced and shipped globally.',
     heroImage: 'https://images.unsplash.com/photo-1582293041079-7814c2f12063?q=80&w=2000&auto=format&fit=crop',
     products: [
       { src: encodeURI('/CONFECTIONARY & SNACKS/Screenshot 2026-06-10 015424.png'), name: 'Cadbury' },
@@ -24,8 +23,6 @@ const categoryDatabase = {
     ]
   },
   'pantry': {
-    title: 'Pantry Essentials',
-    subtitle: 'High-quality sauces, spreads, and everyday culinary staples.',
     heroImage: 'https://images.unsplash.com/photo-1505253758473-96b7015fcd40?q=80&w=2000&auto=format&fit=crop',
     products: [
       { src: encodeURI('/PANTRY/Screenshot 2026-06-10 015707.png'), name: 'SANDHURST' },
@@ -55,8 +52,6 @@ const categoryDatabase = {
     ]
   },
   'healthy': {
-    title: 'Healthy Living',
-    subtitle: 'Nourishing, natural, and organic Australian lifestyle products.',
     heroImage: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=2000&auto=format&fit=crop',
     products: [
       { src: encodeURI('/HEALTHY LIVING/Screenshot 2026-06-10 020154.png'), name: 'Product Name' },
@@ -80,8 +75,12 @@ const categoryDatabase = {
 
 const CategoryPage = () => {
   const { id } = useParams();
+  const { t } = useLanguage();
   const category = categoryDatabase[id];
   const contentRef = useScrollReveal();
+
+  // Translated hero text from i18n
+  const categoryHero = t.categoryPage.categories[id] || { title: id, subtitle: '' };
 
   if (!category) {
     return <div className="h-screen flex items-center justify-center text-2xl font-serif">Category Not Found</div>;
@@ -89,7 +88,7 @@ const CategoryPage = () => {
 
   return (
     <div className="bg-off min-h-screen pb-24">
-      {/* Cinematic Hero */}
+      {/* Cinematic Hero — text is translated */}
       <div className="relative h-[60vh] min-h-[500px] w-full flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center"
@@ -100,19 +99,19 @@ const CategoryPage = () => {
         <div className="relative z-10 text-center px-8 max-w-4xl animate-[fadeUp_0.8s_ease_forwards]">
           <div className="flex items-center justify-center gap-3 text-xs font-semibold tracking-[0.2em] uppercase text-green-light mb-6">
             <div className="w-8 h-[2px] bg-green-light"></div>
-            Premium Assortment
+            {t.categoryPage.premiumAssortment}
             <div className="w-8 h-[2px] bg-green-light"></div>
           </div>
           <h1 className="font-serif text-5xl md:text-7xl text-white mb-6 leading-tight">
-            {category.title}
+            {categoryHero.title}
           </h1>
           <p className="text-lg md:text-xl text-white/80 font-sans max-w-2xl mx-auto">
-            {category.subtitle}
+            {categoryHero.subtitle}
           </p>
         </div>
       </div>
 
-      {/* Product Grid */}
+      {/* Product Grid — product card names stay in English (brand names) */}
       <div className="container mx-auto px-8 max-w-7xl -mt-16 relative z-20">
         <div ref={contentRef} className="reveal grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {category.products.map((prod, index) => (
@@ -137,20 +136,20 @@ const CategoryPage = () => {
           ))}
         </div>
         
-        {/* CTA */}
+        {/* CTA — text translated, category name from i18n */}
         <div className="mt-24 bg-navy text-white rounded-2xl p-12 text-center relative overflow-hidden shadow-xl">
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1586528116311-ad8ed7c50a58?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-10" />
           <div className="relative z-10 max-w-2xl mx-auto">
-            <h2 className="font-serif text-3xl md:text-4xl mb-6">Looking to source {category.title}?</h2>
+            <h2 className="font-serif text-3xl md:text-4xl mb-6">{t.categoryPage.ctaHeading} {categoryHero.title}?</h2>
             <p className="text-white/70 mb-8 leading-relaxed">
-              Our expert team handles the entire process — from procurement and consolidation to multi-language labelling and global shipping.
+              {t.categoryPage.ctaSubtitle}
             </p>
             <div className="flex justify-center gap-4">
               <Link to="/" className="bg-transparent border border-white/50 hover:bg-white hover:text-navy px-8 py-3 font-sans text-sm font-bold tracking-widest uppercase transition-colors duration-300">
-                Back to Home
+                {t.categoryPage.backToHome}
               </Link>
               <Link to="/contact" className="bg-green-light text-navy hover:bg-white px-8 py-3 font-sans text-sm font-bold tracking-widest uppercase transition-colors duration-300">
-                Request a Quote
+                {t.categoryPage.requestQuote}
               </Link>
             </div>
           </div>
