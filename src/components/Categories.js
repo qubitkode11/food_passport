@@ -36,12 +36,9 @@ const categoryImages = [
   'https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=2000&auto=format&fit=crop',
 ];
 const fadeFitImages = [
-  encodeURI('/fadefit images/BBQ_Protein_Puffs_4_Pack.png'),
-  encodeURI('/fadefit images/Cheese_Protein_Puffs_4_Pack.png'),
-  encodeURI('/fadefit images/Chocolate_Fudge_Brownie_Protein_Bar_-_3_x_55g.png'),
-  encodeURI('/fadefit images/Coconut_Protein_Balls_4-Full_Packs.png'),
-  encodeURI('/fadefit images/Dark_Chocolate_Protein_Balls_4-Full_Packs.png'),
-  encodeURI('/fadefit images/Hazelnut_Protein_Balls_4-Full_Packs.png'),
+  encodeURI('/fadefit images/Balls.png'),
+  encodeURI('/fadefit images/Bars.png'),
+  encodeURI('/fadefit images/Puffs.png'),
 ];
 
 const burjBitesImages = [
@@ -50,6 +47,10 @@ const burjBitesImages = [
   encodeURI('/burj bites images/Mango_Kunafa.png'),
   encodeURI('/burj bites images/Pistachio_Kunafa.png'),
   encodeURI('/burj bites images/Speculoos_Kunafa.png'),
+  encodeURI('/burj bites images/Amlu Kunafa .png'),
+  encodeURI('/burj bites images/dark pistachio kunafa.png'),
+  encodeURI('/burj bites images/dark pistachio kunafa (zero sugar).png'),
+  encodeURI('/burj bites images/pistachio kunafa (white chocolate).png'),
 ];
 
 const categoryMarqueeImages = {
@@ -155,8 +156,8 @@ const Categories = () => {
   ];
 
   const importCategories = [
-    { id: 'IMP-01', route: 'fadefit', name: t.categories.fadefit, image: 'https://fadefit.com/cdn/shop/files/Fade_Fit_Peanut_Butter_Protein_Ball_-_studio_ingredients.png?v=1778055152&width=1100', marquees: categoryMarqueeImages.fadefit },
-    { id: 'IMP-02', route: 'burjbites', name: t.categories.burjbites, image: 'https://cdn-ildndpn.nitrocdn.com/YUnRxBxRCNkCrOjzWaKcoUQcgXjBKOIo/assets/images/optimized/rev-5457a33/burjbites.com/wp-content/uploads/2025/05/Images-02-3-300x300.png', marquees: categoryMarqueeImages.burjbites },
+    { id: 'IMP-01', route: 'fadefit', name: t.categories.fadefit, image: '/fadefit.png', marquees: categoryMarqueeImages.fadefit },
+    { id: 'IMP-02', route: 'burjbites', name: t.categories.burjbites, image: '/burjbites.png', marquees: categoryMarqueeImages.burjbites },
   ];
 
   const categoriesToShow = activeTab === 'export' ? exportCategories : importCategories;

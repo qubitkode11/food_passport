@@ -17,9 +17,9 @@ const HomePage = () => {
       </div>
       <OurStory />
       <Services />
+      <Categories />
       <LabellingServices />
       <Customers />
-      <Categories />
       <Logistics />
     </>
   );

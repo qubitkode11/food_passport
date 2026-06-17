@@ -81,31 +81,31 @@ const translations = {
 
     // ── Services ─────────────────────────────────────────────────────
     services: {
-      eyebrow: 'What We Do',
-      heading: 'End-to-End Export Solution',
-      subtitle: 'From source to shelf — every step of your export journey handled under one roof.',
-      items: [
-        {
-          title: 'Consolidation & Logistics',
-          desc: 'Air or sea (FCL/LCL). Single or multi-product orders consolidated into one shipment to your designated port.',
-          tag: 'AQIS Registered',
-        },
-        {
-          title: 'Quality Assurance',
-          desc: 'Every order checked for product quality, expiry dates, and packaging integrity before leaving our facility.',
-          tag: 'Purpose-Built Facility',
-        },
-        {
-          title: 'Labelling & Ink-Jetting',
-          desc: 'Multi-language labels (Arabic and beyond), manufacturing and best-before ink-jetting on every item and carton.',
-          tag: 'Custom Per Client',
-        },
-        {
-          title: 'Custom Sourcing',
-          desc: "Not in the catalogue? We source from Australia's finest manufacturers — consistency, reliability, competitive pricing.",
-          tag: 'Brand Consolidation',
-        },
+      eyebrow: 'How We Work',
+      heading: 'Import & Export, End-to-End',
+      subtitle: 'Two directions, one trusted partner. We ship premium Australian goods worldwide and bring world-class international brands into Australia.',
+      exportLabel: 'Export',
+      exportHeading: 'Australian Goods, Delivered Globally',
+      exportSubtitle: 'We source, consolidate, label, and ship premium Australian FMCG to clients across Europe, the Middle East, Africa, and Asia.',
+      exportSteps: [
+        { icon: 'source', title: 'Custom Sourcing', desc: "We select from Australia's finest FMCG manufacturers — consistent quality, competitive pricing, and reliability." },
+        { icon: 'consolidate', title: 'Consolidation & QA', desc: 'Single or multi-product orders consolidated in our AQIS-registered Derrimut facility with full quality checks.' },
+        { icon: 'label', title: 'Labelling & Ink-Jetting', desc: 'Multi-language labels (Arabic and beyond) with manufacturing and best-before date coding on every item and carton.' },
+        { icon: 'ship', title: 'Global Dispatch', desc: 'Air freight or sea (FCL/LCL) — delivered to your port across 5 continents with full documentation.' },
       ],
+      exportMarketsLabel: 'Destination Markets',
+      exportMarkets: ['Middle East', 'Europe', 'Africa', 'Asia Pacific', 'Americas'],
+      importLabel: 'Import',
+      importHeading: 'World-Class Brands, Brought to Australia',
+      importSubtitle: 'We partner with premium international brands to bring their products into the Australian market — handling compliance, logistics, and distribution.',
+      importSteps: [
+        { icon: 'partner', title: 'Brand Partnership', desc: 'We identify and partner with leading international FMCG brands seeking to enter or grow in the Australian market.' },
+        { icon: 'comply', title: 'Compliance & Customs', desc: 'Full Australian import compliance — AQIS clearance, biosecurity checks, and regulatory labelling requirements handled for you.' },
+        { icon: 'qa', title: 'Quality Inspection', desc: 'On-arrival quality inspection at our Derrimut facility. Temperature-controlled storage for ambient, chilled, and frozen lines.' },
+        { icon: 'distribute', title: 'Local Distribution', desc: 'We connect imported brands with Australian retailers and distributors to ensure strong market penetration.' },
+      ],
+      importOriginsLabel: 'Origin Markets',
+      importOrigins: ['UAE', 'Middle East', 'Europe', 'Asia', 'USA'],
     },
 
     // ── Labelling Services ───────────────────────────────────────────
@@ -378,31 +378,31 @@ const translations = {
 
     // ── Services ─────────────────────────────────────────────────────
     services: {
-      eyebrow: 'ما نقدمه',
-      heading: 'حل تصدير شامل من البداية إلى النهاية',
-      subtitle: 'من المصدر إلى الرف — كل خطوة في رحلة التصدير تحت سقف واحد.',
-      items: [
-        {
-          title: 'التجميع والخدمات اللوجستية',
-          desc: 'شحن جوي أو بحري (FCL/LCL). طلبات منتج واحد أو متعددة مجمّعة في شحنة واحدة إلى ميناؤك المحدد.',
-          tag: 'مسجل في AQIS',
-        },
-        {
-          title: 'ضمان الجودة',
-          desc: 'يتم فحص كل طلب للتحقق من جودة المنتج وتواريخ الانتهاء وسلامة التغليف قبل مغادرة منشأتنا.',
-          tag: 'منشأة مخصصة',
-        },
-        {
-          title: 'التعبئة والنقش بالحبر',
-          desc: 'ملصقات متعددة اللغات (العربية وما سواها)، ونقش بالحبر لتواريخ الصنع وأفضل تاريخ للاستهلاك.',
-          tag: 'مخصص لكل عميل',
-        },
-        {
-          title: 'التوريد المخصص',
-          desc: 'غير موجود في الكتالوج؟ نوفر من أفضل المصنّعين الأستراليين — اتساق وموثوقية وأسعار تنافسية.',
-          tag: 'توحيد العلامات التجارية',
-        },
+      eyebrow: 'كيف نعمل',
+      heading: 'استيراد وتصدير، من البداية إلى النهاية',
+      subtitle: 'اتجاهان، شريك واحد موثوق. نشحن المنتجات الأسترالية المميزة حول العالم ونجلب العلامات الدولية إلى أستراليا.',
+      exportLabel: 'تصدير',
+      exportHeading: 'بضائع أسترالية تُسلَّم عالمياً',
+      exportSubtitle: 'نوفر ونجمع ونعبّئ ونشحن منتجات FMCG الأسترالية المميزة إلى عملاء في أوروبا والشرق الأوسط وأفريقيا وآسيا.',
+      exportSteps: [
+        { icon: 'source', title: 'توريد مخصص', desc: 'نختار من أفضل مصنّعي FMCG الأستراليين — جودة متسقة وأسعار تنافسية وموثوقية.' },
+        { icon: 'consolidate', title: 'تجميع وضمان جودة', desc: 'تجميع طلبات منتج واحد أو متعددة في منشأتنا المسجلة في AQIS بديريموت مع فحوصات جودة كاملة.' },
+        { icon: 'label', title: 'تعبئة ونقش بالحبر', desc: 'ملصقات متعددة اللغات (العربية وغيرها) مع ترميز تواريخ الصنع وأفضل تاريخ للاستهلاك على كل منتج وكرتون.' },
+        { icon: 'ship', title: 'شحن عالمي', desc: 'شحن جوي أو بحري (FCL/LCL) — تسليم إلى ميناؤك عبر 5 قارات مع التوثيق الكامل.' },
       ],
+      exportMarketsLabel: 'أسواق الوجهات',
+      exportMarkets: ['الشرق الأوسط', 'أوروبا', 'أفريقيا', 'آسيا والمحيط الهادئ', 'الأمريكتان'],
+      importLabel: 'استيراد',
+      importHeading: 'علامات عالمية تُجلَب إلى أستراليا',
+      importSubtitle: 'نتشارك مع علامات FMCG الدولية المميزة لإحضار منتجاتها إلى السوق الأسترالي مع إدارة الامتثال واللوجستيات والتوزيع.',
+      importSteps: [
+        { icon: 'partner', title: 'شراكات العلامات التجارية', desc: 'نحدد ونتشارك مع علامات FMCG الدولية الرائدة الساعية إلى دخول السوق الأسترالي أو التوسع فيه.' },
+        { icon: 'comply', title: 'الامتثال والجمارك', desc: 'امتثال استيراد أسترالي كامل — تخليص AQIS وفحوصات الأمن البيولوجي ومتطلبات التعبئة التنظيمية.' },
+        { icon: 'qa', title: 'فحص الجودة', desc: 'فحص جودة عند الوصول في منشأتنا. تخزين بدرجة حرارة محكومة للبضائع المعتدلة والمبردة والمجمدة.' },
+        { icon: 'distribute', title: 'التوزيع المحلي', desc: 'نربط العلامات المستوردة بتجار التجزئة والموزعين الأستراليين لضمان اختراق سوقي قوي.' },
+      ],
+      importOriginsLabel: 'أسواق المنشأ',
+      importOrigins: ['الإمارات', 'الشرق الأوسط', 'أوروبا', 'آسيا', 'الولايات المتحدة'],
     },
 
     // ── Labelling Services ───────────────────────────────────────────
