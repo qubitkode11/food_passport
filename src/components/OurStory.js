@@ -30,7 +30,8 @@ const OurStory = () => {
               <p>{t.story.p3}</p>
             </div>
             
-            <div className="mt-10 grid grid-cols-2 gap-8 border-t border-border pt-8">
+            {/* Founded stats row */}
+            <div className="mt-6 grid grid-cols-2 gap-8 border-t border-border pt-6">
               <div>
                 <div className="font-serif text-4xl text-navy mb-1">2002</div>
                 <div className="text-xs font-semibold tracking-wider text-muted uppercase">{t.story.foundedLabel}</div>
@@ -50,6 +51,17 @@ const OurStory = () => {
               alt="Food Passport operations" 
               className="absolute inset-0 w-full h-full object-cover shadow-sm rounded-sm md:rounded-none"
             />
+            {/* Floating badge on image */}
+            <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm p-4 shadow-lg border border-border hidden md:flex items-center gap-4">
+              <div className="flex-1 text-center border-r border-border pr-4">
+                <div className="text-xs font-bold tracking-[0.15em] uppercase text-green mb-0.5">Export</div>
+                <div className="text-xs text-muted">Australia → World</div>
+              </div>
+              <div className="flex-1 text-center pl-4">
+                <div className="text-xs font-bold tracking-[0.15em] uppercase text-navy mb-0.5">Import</div>
+                <div className="text-xs text-muted">World → Australia</div>
+              </div>
+            </div>
           </div>
           
         </div>

@@ -49,12 +49,12 @@ const translations = {
           subtitle: 'Premium Australian FMCG — sourced, consolidated, labelled, and shipped to Europe, the Middle East, Africa, Asia, and beyond.',
         },
         {
-          title: 'Seamless Global Logistics',
-          subtitle: "From Melbourne to Milan, Dubai to Dakar — we handle the complexity of global supply chains so you don't have to.",
+          title: 'Exporting Australia to the World',
+          subtitle: 'We source, consolidate, label, and ship premium Australian goods globally — air freight or sea, FCL or LCL, to 5 continents.',
         },
         {
-          title: 'Premium Quality Assured',
-          subtitle: "Consolidating Australia's finest brands with meticulous quality control, multi-language labelling, and careful handling.",
+          title: 'Importing the World to Australia',
+          subtitle: 'We bring world-class international brands into Australia — handling compliance, customs, quality inspection, and local distribution.',
         },
       ],
     },
@@ -70,13 +70,17 @@ const translations = {
     // ── Our Story ────────────────────────────────────────────────────
     story: {
       eyebrow: 'Our Story',
-      heading1: 'Decades of FMCG',
-      headingEm: 'Expertise',
-      p1: 'Founded in 2002 by Mrs. Tina Koutroumanis, Food Passport was built on a simple premise: to bridge the gap between Australia\'s finest food producers and the complex demands of international markets.',
-      p2: 'With over 30 years of personal experience in the FMCG sector, our leadership understands the nuances of global food trade. What started as a modest operation in Melbourne has grown into a highly specialized consolidation hub serving clients across 5 continents.',
-      p3: 'We don\'t just ship boxes. We ensure compliance, manage multi-language ink-jetting, oversee QA, and protect your brand\'s integrity across borders. When you partner with us, you gain an extension of your own operations in Australia.',
+      heading1: 'Your Trusted',
+      headingEm: 'Import & Export Partner',
+      p1: 'Founded in 2002 by Mr. Koutroumanis, Food Passport was built on a single vision: to be the bridge between Australia and the world. The business was later handed over to Tina Koutroumanis, who has since grown it into a highly specialised import and export hub — moving goods expertly in both directions.',
+      p2: 'With over 22 years of experience in the FMCG sector, our leadership understands the full complexity of two-way global food trade. We source, consolidate, label, and ship premium Australian goods to 5 continents — and we bring leading international brands through Australian customs with full compliance.',
+      p3: 'Whether you\'re a retailer in Dubai seeking premium Australian snacks, or an international brand ready to enter the Australian market, Food Passport is your end-to-end partner. We handle every step so you don\'t have to.',
       foundedLabel: 'Founded In',
       yearsLabel: 'Years Experience',
+      exportHighlight: 'Export',
+      exportHighlightDesc: 'Australian goods shipped to 5 continents',
+      importHighlight: 'Import',
+      importHighlightDesc: 'World-class brands brought to Australia',
     },
 
     // ── Services ─────────────────────────────────────────────────────
@@ -346,12 +350,12 @@ const translations = {
           subtitle: 'منتجات FMCG أسترالية متميزة — يتم تحديدها وتجميعها وتعبئتها وشحنها إلى أوروبا والشرق الأوسط وأفريقيا وآسيا وما وراءها.',
         },
         {
-          title: 'خدمات لوجستية عالمية سلسة',
-          subtitle: 'من ملبورن إلى ميلانو، ومن دبي إلى داكار — نتولى تعقيدات سلاسل التوريد العالمية نيابةً عنك.',
+          title: 'تصدير أستراليا إلى العالم',
+          subtitle: 'نوفر ونجمع ونعبّئ ونشحن المنتجات الأسترالية المميزة عالمياً — جواً أو بحراً، FCL أو LCL، إلى 5 قارات.',
         },
         {
-          title: 'جودة متميزة مضمونة',
-          subtitle: 'تجميع أفضل العلامات التجارية الأسترالية مع مراقبة دقيقة للجودة وتعبئة متعددة اللغات وتعامل حذر.',
+          title: 'استيراد العالم إلى أستراليا',
+          subtitle: 'نجلب العلامات التجارية الدولية الرائدة إلى أستراليا — نتولى الامتثال والجمارك وفحص الجودة والتوزيع المحلي.',
         },
       ],
     },
@@ -367,13 +371,17 @@ const translations = {
     // ── Our Story ────────────────────────────────────────────────────
     story: {
       eyebrow: 'قصتنا',
-      heading1: 'عقود من الخبرة في',
-      headingEm: 'FMCG',
-      p1: 'تأسست فود باسبورت عام 2002 على يد السيدة تينا كوتروماني، بهدف سد الفجوة بين أفضل منتجي الغذاء الأسترالي والمتطلبات المعقدة للأسواق الدولية.',
-      p2: 'بفضل أكثر من 30 عامًا من الخبرة الشخصية في قطاع FMCG، تفهم قيادتنا دقائق التجارة الغذائية العالمية. نمت شركتنا من عملية متواضعة في ملبورن إلى مركز تجميع متخصص يخدم العملاء عبر 5 قارات.',
-      p3: 'لا نكتفي بشحن الصناديق. نضمن الامتثال، وندير نقش متعدد اللغات، ونشرف على فحص الجودة، ونحمي سمعة علامتك التجارية عبر الحدود. عندما تتشارك معنا، تكتسب امتدادًا لعملياتك في أستراليا.',
+      heading1: 'شريكك الموثوق في',
+      headingEm: 'الاستيراد والتصدير',
+      p1: 'تأسست فود باسبورت عام 2002 على يد السيد كوتروماني، برؤية واحدة: أن تكون الجسر بين أستراليا والعالم. انتقلت إدارة الشركة لاحقًا إلى تينا كوتروماني، التي طوّرتها لتصبح مركزًا متخصصًا للاستيراد والتصدير — تنقل البضائع باحترافية في كلا الاتجاهين.',
+      p2: 'بفضل أكثر من 22 عامًا من الخبرة في قطاع FMCG، تفهم قيادتنا تعقيدات التجارة الغذائية العالمية ثنائية الاتجاه. نوفر ونجمع ونعبئ ونشحن المنتجات الأسترالية المميزة إلى 5 قارات، كما نجلب العلامات الدولية الرائدة إلى السوق الأسترالي بامتثال كامل.',
+      p3: 'سواء كنت تاجرًا في دبي يسعى للحصول على منتجات أسترالية مميزة، أو علامة تجارية دولية تسعى لدخول السوق الأسترالي، فإن فود باسبورت هو شريكك الشامل. نتولى كل خطوة حتى لا تضطر للقلق.',
       foundedLabel: 'سنة التأسيس',
       yearsLabel: 'سنوات الخبرة',
+      exportHighlight: 'تصدير',
+      exportHighlightDesc: 'منتجات أسترالية تُشحن إلى 5 قارات',
+      importHighlight: 'استيراد',
+      importHighlightDesc: 'علامات عالمية تُجلَب إلى أستراليا',
     },
 
     // ── Services ─────────────────────────────────────────────────────
