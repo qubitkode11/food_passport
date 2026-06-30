@@ -247,6 +247,7 @@ const translations = {
       heroSubtitle:
         'Whether you need a single product or a full container, our export specialists are ready to make it happen.',
       directContact: 'Direct Contact',
+      salesDirector: 'Director of Sales',
       emailUs: 'Email Us',
       callUs: 'Call Us',
       headquarters: 'Headquarters',
@@ -547,6 +548,7 @@ const translations = {
       heroSubtitle:
         'سواء كنت تحتاج منتجًا واحدًا أو حاوية كاملة، فريق متخصصي التصدير لدينا مستعد لتحقيق ذلك.',
       directContact: 'التواصل المباشر',
+      salesDirector: 'مدير المبيعات',
       emailUs: 'راسلنا',
       callUs: 'اتصل بنا',
       headquarters: 'المقر الرئيسي',
